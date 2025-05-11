@@ -1,0 +1,58 @@
+.container-faixa {
+    display: flex;
+    width: 100%;
+    max-width: 1311px;
+    height: 64px;
+    overflow: hidden;
+    padding: 0px 39px;
+    border-top: 1px solid var(--PrimeiraCOR, #0F4C83);
+    background: var(--PrimeiraCOR, #0F4C83);
+    justify-content: center;
+    align-items: center;
+    gap: 550px;
+    margin-bottom: 40px;
+    margin: 0 auto;
+}
+
+.container-text-faixa {
+    width: 518px;
+    height: 64px;
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.text-cta {
+    width: 498px;
+    height: 37px;
+    color: var(--BegeFundo, #D9D9D9);
+    font-family: Inter;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
+}
+
+.container-botao-cta {
+    display: flex;
+    width: 186px;
+    height: 30px;
+    border-radius: 50px;
+    background: #FFF;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.img-whatsApp {
+    display: flex;
+    width: 186px;
+    height: 30px;
+    border-radius: 50px;
+    background: #FFF;
+    justify-content: center;
+    align-items: center;
+}

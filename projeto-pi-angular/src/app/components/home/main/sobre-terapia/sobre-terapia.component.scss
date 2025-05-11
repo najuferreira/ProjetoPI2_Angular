@@ -1,0 +1,94 @@
+.container-sobreTerapia {
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  max-width: 1312px;
+  height: auto;
+  border-top-width: 1px;
+  margin: 0 auto 40px auto;
+}
+
+.container-titulo-terapia {
+  width: 1302px;
+  height: 43px;
+  color: var(--PrimeiraCOR, #0F4C83);
+  font-family: "Inria Serif";
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.titulo-terapia {
+  width: 1302px;
+  color: var(--PrimeiraCOR, #0F4C83);
+  font-family: "Inria Serif";
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-align: center;
+}
+
+
+.container-text-img {
+  display: flex;
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.container-text-terapia {
+  display: flex;
+  width: 596px;
+  height: 542px;
+  overflow: hidden;
+  padding: 138px 22px;
+  border-radius: 50px;
+  background: #FFF;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.text-terapia {
+  width: 567px;
+  height: 240px;
+  color: var(--PrimeiraCOR, #0F4C83);
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 1.92px;
+  border-bottom: 1px solid #0F4C83;
+}
+
+.container-img-autocuidado {
+  display: flex;
+  width: 596px;
+  height: 542px;
+  overflow: hidden;
+  padding: 20px var(--sds-size-space-100);
+  border-radius: 50px;
+  background: #FFF;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.img-autocuidado {
+  width: 537.626px;
+  height: 510.834px;
+  border-radius: 50px;
+  /* background: url(../assets/autocuidado.png) lightgray -161.709px -31.704px / 160.157% 112.413% no-repeat; */
+  aspect-ratio: 537.63/510.83;
+}

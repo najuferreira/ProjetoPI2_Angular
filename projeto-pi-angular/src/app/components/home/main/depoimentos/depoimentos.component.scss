@@ -1,0 +1,103 @@
+.container-meusPacientes {
+    display: flex;
+    width: 100%;
+    max-width: 1312px;
+    height: auto;
+    overflow: hidden;
+    border-radius: 3px;
+    border-top: 1px solid var(--PrimeiraCOR, #0F4C83);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0 auto 40px auto;
+}
+
+.container-titulo-meusPacientes {
+    display: flex;
+    width: 1312px;
+    height: 97px;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.titulo-meusPacientes {
+    display: flex;
+    width: 1312px;
+    height: 97px;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.titulo-paciente {
+    width: 257px;
+    height: 43px;
+    color: var(--PrimeiraCOR, #0F4C83);
+    font-family: "Inria Serif";
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.container-comentariosCaixa {
+    display: flex;
+    width: 100%;
+    max-width: 1312px;
+    height: 532px;
+    overflow: hidden;
+    border-radius: 3px;
+    flex-direction: row;
+    border-top: 1px solid var(--PrimeiraCOR, #0F4C83);
+    justify-content: center;
+    align-items: center;
+    gap: 45px;
+    padding: 10px;
+}
+
+.caixa1 {
+    display: flex;
+    width: 402px;
+    overflow: hidden;
+    padding: 153.5px 21.398px 30px 21.602px;
+    border-radius: 60px;
+    border: 1px solid var(--PrimeiraCOR, #0F4C83);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    background: var(--Grays-White, #FFF);
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 68.5px;
+}
+
+
+.text-comentarioCaixa {
+    width: 359px;
+    height: 120px;
+    color: var(--PrimeiraCOR, #0F4C83);
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.containerPessoa {
+    display: inline-flex;
+    overflow: hidden;
+    padding: 11px 21px;
+    border-radius: 10px;
+    background: #0F4C83;
+    justify-content: center;
+    align-items: center;
+}
+
+.nomePessoa {
+    color: #FFF;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
