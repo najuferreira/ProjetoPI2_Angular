@@ -1,0 +1,122 @@
+//header 
+
+header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.container-barraMenu {
+  display: flex;
+  width: 100%;
+  max-width: 1312px;
+  padding: 2px 14px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.container-logoMenu {
+  display: flex;
+  width: 222px;
+  height: 72px;
+  align-items: center;
+  gap: 16px;
+}
+
+.title-logo {
+  width: 119px;
+  height: 30px;
+  color: var(--PrimeiraCOR, #0F4C83);
+  font-family: "Inria Serif";
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 15px;
+  letter-spacing: 2.42px;
+}
+
+.container-menu {
+  display: flex;
+  height: 34px;
+  width: 541px;
+  padding: 0px 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container-menu-texto {
+  display: flex;
+  width: 60px;
+  height: 34px;
+  padding: 8px 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.container-menu-textoSobreMim {
+  display: flex;
+  width: 88px;
+  height: 34px;
+  padding: 8px 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.container-menu-texto-inicio {
+  display: flex;
+  width: 3px;
+  height: 34px;
+  padding: 8px 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.container-menu-texto a,
+.container-menu-texto-sobre-mim a,
+.container-menu-texto-inicio a {
+  color: var(--PrimeiraCOR, #0F4C83);
+  text-shadow: 0px 4px 4px #2e6cf352;
+  font-family: "Roboto";
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-decoration: none;
+}
+
+.container-area-login {
+  display: flex;
+  width: 84px;
+  height: 33px;
+  align-items: center;
+  gap: 5px;
+}
+
+.btn-login-user {
+  color: var(--PrimeiraCOR, #0F4C83);
+  font-family: "Roboto";
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width: 58px;
+  height: 26px;
+  border-radius: 5px;
+  border: none;
+  padding: 4px;
+  background-color: #134bc33d;
+}
+
+.icon-login-user {
+  width: 30px;
+  height: 33px;
+}
