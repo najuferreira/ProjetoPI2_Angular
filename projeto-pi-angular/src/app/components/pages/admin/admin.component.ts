@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { HeaderComponent } from "../home/header/header.component";
 import { HeaderAdminComponent } from './header-admin/header-admin.component';
 import { MainAdminComponent } from './main-admin/main-admin.component';
 
@@ -10,5 +9,7 @@ import { MainAdminComponent } from './main-admin/main-admin.component';
   styleUrl: './admin.component.scss'
 })
 export class AdminComponent {
+
+  
 
 }

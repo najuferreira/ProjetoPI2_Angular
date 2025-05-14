@@ -1,0 +1,29 @@
+<!-- Início do cabeçalho (Header) -->
+ 
+<header>
+        <section id="inicio" class="container-barraMenu">
+
+            <div class="container-logoMenu">
+                <img src="../assets/logoPrincp.png" alt="Logotipo da Psicóloga Ana Vitória com uma borboleta">
+                <h1 class="title-logo"> Ana Vitória Psicóloga</h1>
+            </div>
+
+            <nav class="container-menu">
+                <span class="container-menu-texto-inicio"><a (click)="scrollTo('inicio') ">Início</a></span>
+                <span class="container-menu-texto"><a (click)="scrollTo('sobre-terapia')">SobreTerapia</a></span>
+                <span class="container-menu-texto-sobre-mim"><a (click)="scrollTo('sobre-mim')">Sobre Mim</a></span>
+                <span class="container-menu-texto"><a (click)="scrollTo('depoimentos')">Depoimentos</a></span>
+                <span class="container-menu-texto"><a (click)="scrollTo('duvidas')">Dúvidas</a></span>
+            </nav>
+
+
+            <div class="container-area-login">
+                
+                <img class="icon-login-user " src="../assets/usuario.png" alt="Usuario">
+                <button class="btn-login-user" type="button" (click)="goToLogin()">Login</button>
+            
+            
+            </div>
+
+        </section>
+    </header>
