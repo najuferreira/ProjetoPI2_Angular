@@ -1,0 +1,88 @@
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px; 
+}
+
+
+.container-painel-de-acesso {
+  max-width: 600px;
+  width: 100%;
+  display: flex;
+  padding: 60px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-direction: column;
+  margin-top: 140px; 
+  box-sizing: border-box;
+  margin: 60px auto 40px auto;
+}
+
+.container-titulo-acesso {
+  text-align: center;
+  color: var(--PrimeiraCOR, #0F4C83);
+  font-family: "Roboto";
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.container-texto-acesso {
+  text-align: center;
+  color: var(--PrimeiraCOR, #0F4C83);
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.container-acesso-interativo-login {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.input-user-name,
+.input-password {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.10);
+  background-color: #fff;
+  color: #333;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.input-user-name:focus,
+.input-password:focus {
+  border-color: var(--PrimeiraCOR, #0F4C83);
+  box-shadow: 0 0 0 2px rgba(15, 76, 131, 0.2);
+}
+
+.container-botao-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.botao-login {
+  width: 100%;
+  max-width: 240px;
+  height: 48px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #0F4C83 0%, #03111D 100%);
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.botao-login:hover {
+  background: linear-gradient(180deg, #146AB8 0%, #052033 100%);
+}
