@@ -1,0 +1,46 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px; }
+
+.container-pagina-principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background: #FFF;
+}
+
+
+.container-acesso-opcoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 120px);
+}
+
+.container-opcoes {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+}
+
+.opcoes-botao {
+    width: 273px;
+    height: 67px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(180deg, #0F4C83 0%, #03111D 100%);
+    color: #FFF;
+    font-size: 24px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.opcoes-botao:hover {
+    background: linear-gradient(180deg, #146AB8 0%, #052033 100%);
+}

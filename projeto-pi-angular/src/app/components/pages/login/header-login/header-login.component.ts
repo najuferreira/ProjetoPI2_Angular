@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   templateUrl: './header-login.component.html',
   styleUrl: './header-login.component.scss'
 })
-export class HeaderAdminComponent {
+export class HeaderloginComponent {
 
 }

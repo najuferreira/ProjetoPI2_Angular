@@ -1,17 +1,25 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './components/pages/home/home.component';
-import { AdminComponent } from './components/pages/admin/admin.component';
 import { loginComponent } from './components/pages/login/login.component';
+import { AdminComponent } from './components/pages/admin/admin.component';
+import { PacientesComponent } from './components/pages/pacientes/pacientes.component';
 
-export const routes:Routes = [
-    {        path: "",
+export const routes: Routes = [
+    {
+        path: "",
         component: HomeComponent
     },
-    {        path: "login",
+    {
+        path: "login",
         component: loginComponent
     },
     {
-        path: "Admin",
-        component:AdminComponent
-    }
+        path: "admin",
+        component: AdminComponent
+    },
+    {
+        path: "pacientes",
+        component:PacientesComponent
+    },
+    
 ];  

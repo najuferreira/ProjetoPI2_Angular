@@ -16,11 +16,10 @@ export class HeaderComponent {
   }
 
 
-
 constructor(private router: Router) {}
 
 goToLogin() {
-  this.router.navigate(['/admin']);
+  this.router.navigate(['/login']);
 }
 
 }
