@@ -1,0 +1,157 @@
+<main>
+    <div class="container-pagina">
+        <section class="container-sub-menu">
+            <div class="container-icone">
+                <img src="../assets/icone-sub-menu.png" alt="Ícone" class="icone" />
+            </div>
+            <div class="container-texto-sub-menu">
+                <h1>Meus Pacientes</h1>
+            </div>
+        </section>
+
+        <section class="container-titulo-registropaciente">
+            <h1 class="titulo-texto">Registro de pacientes</h1>
+        </section>
+
+        <section class="container-formulario">
+
+            <!-- Campos Nome e Data de nascimento -->
+            <div class="container-dupla-formulario">
+                <div class="container-texto-solicitacao">
+                    <p class="texto-solicitacao">Nome</p>
+                    <input type="text" class="input-nome" placeholder="Digite o nome completo" />
+                    <p class="texto-obrigatorio">Obrigatório*</p>
+                </div>
+                <div class="container-texto-solicitacao">
+                    <p class="texto-solicitacao">Data de nascimento</p>
+                    <input type="date" class="input-nome" id="data_nascimento" name="data_nascimento" min="1990-01-01"
+                        max="2025-12-31" />
+                    <p class="texto-obrigatorio">Obrigatório*</p>
+                </div>
+            </div>
+
+            <!-- CPF e RG -->
+            <div class="container-dupla-formulario">
+                <div class="container-texto-solicitacao">
+                    <p class="texto-solicitacao">CPF</p>
+                    <input type="text" class="input-nome" placeholder="Digite sem pontuações" />
+                    <p class="texto-obrigatorio">Obrigatório*</p>
+                </div>
+                <div class="container-texto-solicitacao">
+                    <p class="texto-solicitacao">RG</p>
+                    <input type="text" class="input-nome" placeholder="Digite sem pontuações" />
+                    <p class="texto-obrigatorio">Obrigatório*</p>
+                </div>
+            </div>
+
+            <!-- Contato e Email -->
+            <div class="container-dupla-formulario">
+                <div class="container-texto-solicitacao">
+                    <p class="texto-solicitacao">Número de contato</p>
+                    <input type="text" class="input-nome" placeholder="Digite um telefone" />
+                    <p class="texto-obrigatorio">Obrigatório*</p>
+                </div>
+                <div class="container-texto-solicitacao">
+                    <p class="texto-solicitacao">Email</p>
+                    <input type="text" class="input-nome" placeholder="Digite um email" />
+                    <p class="texto-obrigatorio">Obrigatório*</p>
+                </div>
+            </div>
+
+            <!-- Gênero e Pagamento -->
+            <div class="container-dupla-formulario">
+                <div class="container-texto-solicitacao">
+                    <p class="texto-solicitacao">Gênero</p>
+                    <div class="container-espaco-botao">
+                        <button class="container-estilo-botao">Masculino</button>
+                        <button class="container-estilo-botao">Feminino</button>
+                        <button class="container-estilo-botao">Outro</button>
+                        <p class="texto-obrigatorio">Obrigatório*</p>
+                    </div>
+                </div>
+                <div class="container-texto-solicitacao">
+                    <p class="texto-solicitacao">Preferência de pagamento</p>
+                    <div class="container-espaco-botao">
+                        <button class="container-estilo-botao">Mensal</button>
+                        <button class="container-estilo-botao">Semanal</button>
+                        <p class="texto-obrigatorio">Obrigatório*</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- Profissão e CEP -->
+            <div class="container-dupla-formulario">
+                <div class="container-texto-solicitacao">
+                    <p class="texto-solicitacao">Profissão</p>
+                    <input type="text" class="input-nome" placeholder="Digite aqui" />
+                    <p class="texto-obrigatorio">Opcional*</p>
+                </div>
+                <div class="container-texto-solicitacao">
+                    <p class="texto-solicitacao">CEP</p>
+                    <input type="text" class="input-nome" placeholder="Digite sem pontuações" />
+                    <p class="texto-obrigatorio">Obrigatório*</p>
+                </div>
+            </div>
+
+            <!-- Motivo e Horário -->
+            <div class="container-dupla-formulario">
+                <div class="container-texto-solicitacao">
+                    <p class="texto-solicitacao">Motivo de contato</p>
+                    <div class="container-espaco-botao">
+                        <button class="container-estilo-botao">Ansiedade</button>
+                        <button class="container-estilo-botao">Depressão</button>
+                        <button class="container-estilo-botao">Estresse</button>
+                        <button class="container-estilo-botao">Relacionamento</button>
+                        <button class="container-estilo-botao">
+                            Auto-conhecimento
+                        </button>
+                        <p class="texto-obrigatorio">Obrigatório*</p>
+                    </div>
+                    <input type="text" class="input-nome" placeholder="Outro? Digite aqui..." />
+                </div>
+
+                <div class="container-texto-solicitacao">
+                    <p class="texto-solicitacao">Horário de atendimento</p>
+                    <div class="container-espaco-botao">
+                        <button class="container-estilo-botao">Manhã</button>
+                        <button class="container-estilo-botao">Tarde</button>
+                        <button class="container-estilo-botao">Noite</button>
+                        <button class="container-estilo-botao">Indiferente</button>
+                        <p class="texto-obrigatorio">Obrigatório*</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Origem e Emergência -->
+            <div class="container-dupla-formulario">
+                <div class="container-texto-solicitacao">
+                    <p class="texto-solicitacao">Como conheceu esse serviço</p>
+                    <div class="container-espaco-botao">
+                        <button class="container-estilo-botao">Indicação</button>
+                        <button class="container-estilo-botao">Rede social</button>
+                        <button class="container-estilo-botao">Google</button>
+                        <button class="container-estilo-botao">Outro</button>
+                        <p class="texto-obrigatorio">Obrigatório*</p>
+                    </div>
+                </div>
+                <div class="container-texto-solicitacao">
+                    <p class="texto-solicitacao">Contato de emergência</p>
+                    <input type="text" class="input-nome" placeholder="Digite um número de telefone" />
+                    <p class="texto-obrigatorio">Obrigatório*</p>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="container-botoes-envio">
+
+            <button type="button" class="container-estilo-botao-editar">Editar</button>
+            <button type="submit" class="container-estilo-botao-registrar">Registrar</button>
+
+        </section>
+
+
+    </div>
+</main>

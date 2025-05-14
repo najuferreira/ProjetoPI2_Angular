@@ -1,0 +1,206 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+.container-pagina {
+    max-width: 1440px;
+    min-height: 1191px;
+    display: flex;
+    padding: 23px 120px 60px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.container-sub-menu {
+    width: 100%;
+    max-width: 1200px;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+
+    padding: 30px;
+}
+
+.container-icone {
+    display: flex;
+    width: 60px;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.container-texto-sub-menu {
+    width: 144px;
+    color: #0f4c83;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 28px;
+    white-space: nowrap;
+}
+
+.container-titulo-registropaciente {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.titulo-texto {
+    width: 520px;
+    color: #0f4c83;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 48px;
+}
+
+.container-formulario {
+    width: 100%;
+    max-width: 1200px;
+    min-height: 928px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+
+}
+
+.container-dupla-formulario {
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    display: flex;
+    gap: 80px;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.container-texto-solicitacao {
+    width: 100%;
+    height: auto;
+    color: #000;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+}
+
+.texto-solicitacao {
+    display: flex;
+    flex: wrap;
+    width: 100%;
+    height: auto;
+    padding: 8px 12px;
+    align-items: center;
+    gap: 4px;
+}
+
+.input-nome {
+    width: 510px;
+    height: 36px;
+    display: flex;
+    padding: 8px 12px;
+    align-items: center;
+    gap: 4px;
+    border-radius: 6px;
+    border: 1px solid #134bc3;
+    background: #fff;
+}
+
+.texto-obrigatorio {
+    width: 10px;
+    color: #134bc3;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+}
+
+.container-espaco-botao {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.container-estilo-botao {
+    display: flex;
+    width: 100px;
+    height: 36px;
+    padding: 8px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    background: #134bc33d;
+}
+
+.container-botoes-envio {
+    display: flex;
+    width: 492px;
+    height: 48px;
+    gap: 12px;
+}
+
+input[type="date"].input-nome {
+    width: 510px;
+    height: 36px;
+    padding: 8px 12px;
+
+    font-size: 14px;
+    border: 1px solid #134bc3;
+    border-radius: 6px;
+    background-color: #fff;
+    color: #000;
+    box-sizing: border-box;
+}
+
+
+.container-estilo-botao-editar {
+    display: flex;
+    width: 240px;
+    height: 48px;
+    padding: 12px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    border: 1px solid #134bc3;
+    color: #134bc3;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.container-estilo-botao-registrar {
+    display: flex;
+    width: 240px;
+    height: 48px;
+    padding: 12px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background: #134bc3;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.container-estilo-botao-registrar:hover {
+    background: #0f3a91;
+}
+
+.container-estilo-botao-editar:hover {
+    background: #dfe6f0; }
