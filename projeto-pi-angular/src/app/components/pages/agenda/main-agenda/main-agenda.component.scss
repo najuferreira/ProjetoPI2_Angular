@@ -1,67 +1,58 @@
 .container-sub-menu {
-  width: 100%;
-  max-width: 1200px;
+  width: 1072px;
   height: 100px;
   display: flex;
-  flex-direction: row;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
-  margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 30px;
-}
 
-.container-icone {
-  display: flex;
-  width: 60px;
-  height: 60px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 30px;
-  background: rgba(0, 0, 0, 0.05);
-}
-
-.container-texto-sub-menu {
-  width: 144px;
-  color: #0f4c83;
-  font-size: 15px;
-  font-weight: 500;
-  line-height: 28px;
-  white-space: nowrap;
-}
-
-.container-titulo-agenda {
-  width: 100%;
-  max-width: 1200px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 24px;
-}
-
-.titulo-texto {
-  width: 520px;
-  color: #0f4c83;
-  text-align: center;
-  font-size: 40px;
-  font-weight: 700;
-  line-height: 48px;
-  margin-top: auto;
-  margin-left: auto;
-}
-
-
-
-
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   padding: 20px;
 }
 
+.text-icone {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
 
+/* Sessão agendamento */
+.container-agendamento {
+  display: flex;
+  width: 1312px;
+  height: 368px;
+  overflow: hidden;
+  padding: 20px 120px 60px 120px;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+}
+
+.container-espaco-agendamento {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 27px;
+}
+
+.container-titulo-agendamento {
+  width: 520px;
+  color: var(--PrimeiraCOR, #0F4C83);
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 48px;
+  text-align: center;
+}
+
+.pesquisar-pacientes {
+  height: 20px;
+  color: rgba(0, 0, 0, 0.50);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
 /* Sessão ícones submenu */
 .container-espaco-total-sub {
@@ -82,6 +73,7 @@ main {
 
 .text-agenda-sub {
   color: var(--PrimeiraCOR, #0f4c83);
+  ;
   font-size: 20px;
   font-weight: 500;
   margin: 0;
@@ -97,26 +89,6 @@ main {
   stroke: #134bc3;
 }
 
-
-
-.pesquisar-pacientes {
-  height: 20px;
-  color: rgba(0, 0, 0, 0.50);
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 20px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-
-
-}
-
-
-
-
-
-
 /* Sessão formulário */
 .container-espaco-form {
   display: flex;
@@ -127,9 +99,6 @@ main {
   justify-content: center;
   align-items: center;
   gap: 60px;
-  margin-top: auto;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .container-espaco-text-form {
@@ -184,9 +153,6 @@ main {
   border-radius: 6px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   background: #fff;
-  margin-top: auto;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .texto-obrigatorio {

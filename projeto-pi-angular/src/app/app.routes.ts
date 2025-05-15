@@ -4,6 +4,8 @@ import { loginComponent } from './components/pages/login/login.component';
 import { AdminComponent } from './components/pages/admin/admin.component';
 import { PacientesComponent } from './components/pages/pacientes/pacientes.component';
 import { AgendaComponent } from './components/pages/agenda/agenda.component';
+import { DuvidasComponent } from './components/pages/duvidas/duvidas.component';
+import { FeedbackComponent } from './components/pages/feedback/feedback.component';
 
 export const routes: Routes = [
     {
@@ -25,6 +27,14 @@ export const routes: Routes = [
     {
         path:"agenda",
         component:AgendaComponent
+    },
+    {
+        path: "duvidas",
+        component: DuvidasComponent
+    },
+    {
+        path: "feedback",
+        component: FeedbackComponent
     }
     
 ];  
