@@ -8,33 +8,12 @@ import { DuvidasComponent } from './components/pages/duvidas/duvidas.component';
 import { FeedbackComponent } from './components/pages/feedback/feedback.component';
 
 export const routes: Routes = [
-    {
-        path: "",
-        component: HomeComponent
-    },
-    {
-        path: "login",
-        component: loginComponent
-    },
-    {
-        path: "admin",
-        component: AdminComponent
-    },
-    {
-        path: "pacientes",
-        component:PacientesComponent
-    },
-    {
-        path:"agenda",
-        component:AgendaComponent
-    },
-    {
-        path: "duvidas",
-        component: DuvidasComponent
-    },
-    {
-        path: "feedback",
-        component: FeedbackComponent
-    }
-    
-];  
+    { path: "", component: HomeComponent },
+    { path: "login", component: loginComponent },
+    { path: "admin", component: AdminComponent },
+    { path: "admin/pacientes", component: PacientesComponent },
+    { path: "admin/agenda", component: AgendaComponent },
+    { path: "admin/duvidas", component: DuvidasComponent },
+    { path: "admin/feedback", component: FeedbackComponent },
+    { path: '**', redirectTo: '' }
+];
