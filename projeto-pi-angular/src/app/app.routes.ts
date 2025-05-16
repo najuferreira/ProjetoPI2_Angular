@@ -7,6 +7,8 @@ import { AgendaComponent } from './components/pages/agenda/agenda.component';
 import { DuvidasComponent } from './components/pages/duvidas/duvidas.component';
 import { FeedbackComponent } from './components/pages/feedback/feedback.component';
 
+
+
 export const routes: Routes = [
     { path: "", component: HomeComponent },
     { path: "login", component: loginComponent },
