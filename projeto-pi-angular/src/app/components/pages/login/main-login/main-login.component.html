@@ -1,4 +1,4 @@
-<section class="container-painel-de-acesso">
+<!-- <section class="container-painel-de-acesso">
   <div class="container-titulo-acesso">
     <h2>Bem-vindo(a)!</h2>
   </div>
@@ -18,5 +18,62 @@
 
   <div class="container-botao-login">
     <button type="submit" class="botao-login">Login</button>
-  </div>
+  </div> -->
+
+<section>
+  <section class="container-painel-de-acesso">
+    <!-- Título dinâmico -->
+    <div class="container-titulo-acesso">
+      <h2>{{ isCadastro ? 'Crie sua conta' : 'Bem-vindo(a)!' }}</h2>
+    </div>
+  
+    <!-- Mensagem dinâmica -->
+    <div class="container-texto-acesso">
+      <p>{{ isCadastro ? 'Preencha os dados abaixo para se cadastrar.' : 'Por favor, realize o login para continuar.' }}
+      </p>
+    </div>
+  
+    <!-- Formulário dinâmico -->
+    <div class="container-acesso-interativo-login">
+      <!-- Campos de cadastro (mostrados apenas quando isCadastro = true) -->
+      <div class="container-input-username" *ngIf="isCadastro">
+        <input type="text" placeholder="Nome completo" class="input-user-name">
+      </div>
+      <div class="container-input-username" *ngIf="isCadastro">
+        <input type="email" placeholder="E-mail" class="input-user-name">
+      </div>
+  
+      <!-- Campos comuns a ambos -->
+      <div class="container-input-username">
+        <input type="text" placeholder="Username" class="input-user-name" required>
+      </div>
+      <div class="container-input-password">
+        <input type="password" placeholder="Password" class="input-password" required>
+      </div>
+  
+      <!-- Campo adicional para cadastro -->
+      <div class="container-input-password" *ngIf="isCadastro">
+        <input type="password" placeholder="Confirme o Password" class="input-password">
+      </div>
+    </div>
+  
+    <!-- Botão dinâmico -->
+    <div class="container-botao-login">
+      <button type="submit" class="botao-login">
+        {{ isCadastro ? 'Cadastrar' : 'Login' }}
+      </button>
+    </div>
+  
+    <!-- Link para alternar entre login e cadastro -->
+    <div class="container-cadastro">
+      <p *ngIf="!isCadastro">Não tem uma conta?
+        <a (click)="toggleCadastro()" class="link-cadastro">Cadastre-se</a>
+      </p>
+      <p *ngIf="isCadastro">Já tem uma conta?
+        <a (click)="toggleCadastro()" class="link-cadastro">Faça login</a>
+      </p>
+    </div>
+    </section>
+
+
 </section>

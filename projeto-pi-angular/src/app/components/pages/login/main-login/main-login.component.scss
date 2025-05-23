@@ -86,3 +86,30 @@ main {
 .botao-login:hover {
   background: linear-gradient(180deg, #146AB8 0%, #052033 100%);
 }
+
+// cadastro 
+
+.container-cadastro {
+  text-align: center;
+  margin-top: 16px;
+  color: var(--PrimeiraCOR, #0F4C83);
+  font-family: "Roboto";
+  font-size: 14px;
+}
+
+.link-cadastro {
+  color: var(--PrimeiraCOR, #0F4C83);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.link-cadastro:hover {
+  color: #146AB8;
+  text-decoration: underline;
+}
+
+.botao-login {
+  cursor: pointer;
+}

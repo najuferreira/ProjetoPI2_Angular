@@ -1,12 +1,15 @@
 import { Component } from '@angular/core';
 import { HeaderAdminComponent } from "./header-admin/header-admin.component";
 import { MainAdminComponent } from "./main-admin/main-admin.component";
-
+import { Router } from '@angular/router';
+import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-admin',
-  imports: [HeaderAdminComponent, MainAdminComponent],
+  standalone: true,
+  imports: [HeaderAdminComponent, MainAdminComponent,RouterModule],
   templateUrl: './admin.component.html',
-  styleUrl: './admin.component.scss'
+  styleUrls: ['./admin.component.scss'],
+
 })
 export class AdminComponent {
 

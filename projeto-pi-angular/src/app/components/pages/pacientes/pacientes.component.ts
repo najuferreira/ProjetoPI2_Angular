@@ -4,9 +4,10 @@ import { MainPacientesComponent } from "./main-pacientes/main-pacientes.componen
 
 @Component({
   selector: 'app-pacientes',
+  standalone: true,
   imports: [HeaderAdminComponent, MainPacientesComponent],
   templateUrl: './pacientes.component.html',
-  styleUrl: './pacientes.component.scss'
+  styleUrls: ['./pacientes.component.scss']
 })
 export class PacientesComponent {
 
