@@ -64,19 +64,67 @@
 
 
 
-.logof {
-  width: 100%;
-  max-width: 240px;
-  height: 48px;
-  border-radius: 4px;
-  background: linear-gradient(180deg, #0F4C83 0%, #03111D 100%);
-  color: white;
-  font-size: 19px;
-  font-weight: 500;
+
+
+.Btn-login-user {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  transition-duration: .3s;
+  box-shadow: 2px 2px 10px rgba(177, 51, 189, 0.199);
+  background-color: #f2f3fc;
 }
 
-.logof:hover {
-  background: linear-gradient(180deg, #c05454ef 0%, #0F4C83 100%);
+.sign {
+  width: 100%;
+  transition-duration: .3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sign svg {
+  width: 17px;
+}
+
+.sign svg path {
+  fill: #134bc3;
+}
+
+.text {
+  position: absolute;
+  right: 0%;
+  width: 0%;
+  opacity: 0;
+  color: #134bc3;
+  font-size: 1.2em;
+  font-weight: 600;
+  transition-duration: .3s;
+}
+.Btn-login-user:hover {
+  width: 125px;
+  border-radius: 5px;
+  transition-duration: .3s;
+}
+
+.Btn-login-user:hover .sign {
+  width: 30%;
+  transition-duration: .3s;
+  padding-left: 20px;
+}
+.Btn-login-user:hover .text {
+  opacity: 1;
+  width: 70%;
+  transition-duration: .3s;
+  padding-right: 10px;
+}
+.Btn-login-user:active {
+  transform: translate(2px ,2px);
 }

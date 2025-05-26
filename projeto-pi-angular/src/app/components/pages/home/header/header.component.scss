@@ -93,30 +93,64 @@ html {
   text-decoration: none;
 }
 
-.container-area-login {
+
+.Btn-login-user {
   display: flex;
-  width: 84px;
-  height: 33px;
   align-items: center;
-  gap: 5px;
-}
-
-.btn-login-user {
-  color: var(--PrimeiraCOR, #0F4C83);
-  font-family: "Roboto";
-  font-size: 15px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  width: 58px;
-  height: 26px;
-  border-radius: 5px;
-  border: none;
-  padding: 4px;
-  background-color: #134bc33d;
-}
-
-.icon-login-user {
+  justify-content: flex-start;
   width: 30px;
-  height: 33px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition-duration: .3s;
+  box-shadow: 2px 2px 10px rgba(177, 51, 189, 0.199);
+  background-color: #f2f3fc;
+}
+
+.sign {
+  width: 100%;
+  transition-duration: .3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sign svg {
+  width: 17px;
+}
+
+
+
+.text {
+  position: absolute;
+  right: 0%;
+  width: 0%;
+  opacity: 0;
+  color: #134bc3;
+  font-size: 1.2em;
+  font-weight: 600;
+  transition-duration: .3s;
+}
+.Btn-login-user:hover {
+  width: 125px;
+  border-radius: 5px;
+  transition-duration: .3s;
+}
+
+.Btn-login-user:hover .sign {
+  width: 30%;
+  transition-duration: .3s;
+  padding-left: 20px;
+}
+.Btn-login-user:hover .text {
+  opacity: 1;
+  width: 70%;
+  transition-duration: .3s;
+  padding-right: 10px;
+}
+.Btn-login-user:active {
+  transform: translate(2px ,2px);
 }
