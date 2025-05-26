@@ -6,6 +6,7 @@ import { PacientesComponent } from './components/pages/pacientes/pacientes.compo
 import { AgendaComponent } from './components/pages/agenda/agenda.component';
 import { DuvidasComponent } from './components/pages/duvidas/duvidas.component';
 import { FeedbackComponent } from './components/pages/feedback/feedback.component';
+import { MainComponent } from './components/pages/pag404/main/main.component';
 
 
 
@@ -17,5 +18,6 @@ export const routes: Routes = [
     { path: "admin/agenda", component: AgendaComponent },
     { path: "admin/duvidas", component: DuvidasComponent },
     { path: "admin/feedback", component: FeedbackComponent },
-    { path: '**', redirectTo: '' }
+    { path: 'pagina-nao-encontrada', component: MainComponent },
+    { path: '**', redirectTo: 'pagina-nao-encontrada' }
 ];
