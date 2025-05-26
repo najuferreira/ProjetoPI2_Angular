@@ -62,10 +62,21 @@
     align-items: center;
 }
 
-.input-pesquisa {
-    width: 200px;
-    height: 36px;
-    padding: 8px;
-    border: 1px solid #134bc3;
-    border-radius: 6px;
+
+
+.logof {
+  width: 100%;
+  max-width: 240px;
+  height: 48px;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #0F4C83 0%, #03111D 100%);
+  color: white;
+  font-size: 19px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.logof:hover {
+  background: linear-gradient(180deg, #c05454ef 0%, #0F4C83 100%);
 }
