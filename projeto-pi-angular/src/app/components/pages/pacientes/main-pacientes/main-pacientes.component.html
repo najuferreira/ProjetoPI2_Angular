@@ -13,19 +13,19 @@
             <h1 class="titulo-texto">Registro de pacientes</h1>
         </section>
 
-        <section class="container-formulario">
+        <form [formGroup]="pacienteForm" method="post" class="container-formulario">
 
             <!-- Campos Nome e Data de nascimento -->
             <div class="container-dupla-formulario">
                 <div class="container-texto-solicitacao">
                     <p class="texto-solicitacao">Nome</p>
-                    <input type="text" class="input-nome" placeholder="Digite o nome completo" />
+                    <input formControlName="nome" type="text" class="input-nome" placeholder="Digite o nome completo" />
                     <p class="texto-obrigatorio">Obrigatório*</p>
                 </div>
                 <div class="container-texto-solicitacao">
                     <p class="texto-solicitacao">Data de nascimento</p>
-                    <input type="date" class="input-nome" id="data_nascimento" name="data_nascimento" min="1990-01-01"
-                        max="2025-12-31" />
+                    <input formControlName="data_nascimento" type="date" class="input-nome" id="data_nascimento"
+                        name="data_nascimento" min="1990-01-01" max="2025-12-31" />
                     <p class="texto-obrigatorio">Obrigatório*</p>
                 </div>
             </div>
@@ -34,12 +34,12 @@
             <div class="container-dupla-formulario">
                 <div class="container-texto-solicitacao">
                     <p class="texto-solicitacao">CPF</p>
-                    <input type="text" class="input-nome" placeholder="Digite sem pontuações" />
+                    <input formControlName="cpf" type="text" class="input-nome" placeholder="Digite sem pontuações" />
                     <p class="texto-obrigatorio">Obrigatório*</p>
                 </div>
                 <div class="container-texto-solicitacao">
                     <p class="texto-solicitacao">RG</p>
-                    <input type="text" class="input-nome" placeholder="Digite sem pontuações" />
+                    <input formControlName="rg" type="text" class="input-nome" placeholder="Digite sem pontuações" />
                     <p class="texto-obrigatorio">Obrigatório*</p>
                 </div>
             </div>
@@ -48,12 +48,13 @@
             <div class="container-dupla-formulario">
                 <div class="container-texto-solicitacao">
                     <p class="texto-solicitacao">Número de contato</p>
-                    <input type="text" class="input-nome" placeholder="Digite um telefone" />
+                    <input formControlName="numero_contato" type="text" class="input-nome"
+                        placeholder="Digite um telefone" />
                     <p class="texto-obrigatorio">Obrigatório*</p>
                 </div>
                 <div class="container-texto-solicitacao">
                     <p class="texto-solicitacao">Email</p>
-                    <input type="text" class="input-nome" placeholder="Digite um email" />
+                    <input formControlName="email" type="text" class="input-nome" placeholder="Digite um email" />
                     <p class="texto-obrigatorio">Obrigatório*</p>
                 </div>
             </div>
@@ -66,6 +67,7 @@
                         <button class="container-estilo-botao">Masculino</button>
                         <button class="container-estilo-botao">Feminino</button>
                         <button class="container-estilo-botao">Outro</button>
+                        <input formControlName="genero" type="text" type="text">
                         <p class="texto-obrigatorio">Obrigatório*</p>
                     </div>
                 </div>
@@ -74,6 +76,7 @@
                     <div class="container-espaco-botao">
                         <button class="container-estilo-botao">Mensal</button>
                         <button class="container-estilo-botao">Semanal</button>
+                        <input formControlName="preferencia_pagamento" type="text">
                         <p class="texto-obrigatorio">Obrigatório*</p>
                     </div>
                 </div>
@@ -85,12 +88,12 @@
             <div class="container-dupla-formulario">
                 <div class="container-texto-solicitacao">
                     <p class="texto-solicitacao">Profissão</p>
-                    <input type="text" class="input-nome" placeholder="Digite aqui" />
+                    <input formControlName="profissao" type="text" class="input-nome" placeholder="Digite aqui" />
                     <p class="texto-obrigatorio">Opcional*</p>
                 </div>
                 <div class="container-texto-solicitacao">
                     <p class="texto-solicitacao">CEP</p>
-                    <input type="text" class="input-nome" placeholder="Digite sem pontuações" />
+                    <input formControlName="cep" type="text" class="input-nome" placeholder="Digite sem pontuações" />
                     <p class="texto-obrigatorio">Obrigatório*</p>
                 </div>
             </div>
@@ -107,6 +110,7 @@
                         <button class="container-estilo-botao">
                             Auto-conhecimento
                         </button>
+                        <input formControlName="motivo_contato" type="text" name="motivo_contato" id="motivo_contato">
                         <p class="texto-obrigatorio">Obrigatório*</p>
                     </div>
                     <input type="text" class="input-nome" placeholder="Outro? Digite aqui..." />
@@ -120,6 +124,8 @@
                         <button class="container-estilo-botao">Noite</button>
                         <button class="container-estilo-botao">Indiferente</button>
                         <p class="texto-obrigatorio">Obrigatório*</p>
+                        <input formControlName="horario_atendimento" type="text" name="horario_atendimento"
+                            id="horario_atendimento">
                     </div>
                 </div>
             </div>
@@ -134,21 +140,25 @@
                         <button class="container-estilo-botao">Google</button>
                         <button class="container-estilo-botao">Outro</button>
                         <p class="texto-obrigatorio">Obrigatório*</p>
+                        <input formControlName="conheceu_servico" type="text" name="conheceu_servico"
+                            id="conheceu_servico">
                     </div>
                 </div>
                 <div class="container-texto-solicitacao">
                     <p class="texto-solicitacao">Contato de emergência</p>
-                    <input type="text" class="input-nome" placeholder="Digite um número de telefone" />
+                    <input formControlName="contato_emergencia" type="text" class="input-nome"
+                        placeholder="Digite um número de telefone" />
                     <p class="texto-obrigatorio">Obrigatório*</p>
                 </div>
             </div>
 
-        </section>
+        </form>
 
         <section class="container-botoes-envio">
 
             <button type="button" class="container-estilo-botao-editar">Editar</button>
-            <button type="submit" class="container-estilo-botao-registrar">Registrar</button>
+            <button type="submit" class="container-estilo-botao-registrar"
+                (click)="registrarPaciente()">Registrar</button>
 
         </section>
 
