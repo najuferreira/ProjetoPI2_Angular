@@ -11,4 +11,6 @@ import { MainPacientesComponent } from "./main-pacientes/main-pacientes.componen
 })
 export class PacientesComponent {
 
+
+
 }
