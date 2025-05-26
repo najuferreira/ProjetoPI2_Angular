@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Paciente } from '../../../../../interfaces/user';
 import { UserService } from '../../../../../services/user.service';
@@ -11,19 +11,34 @@ import { UserService } from '../../../../../services/user.service';
   styleUrls: ['./main-pacientes.component.scss']
 })
 export class MainPacientesComponent implements OnInit {
-
   pacienteData: Paciente[] = [];
-  public userService = inject(UserService);
+  isLoading: boolean = true;
+  error: string | null = null;
+
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-
+    this.loadPatients();
   }
 
-  listaPaciente(): void {
-    this.userService.getAllPaciente().subscribe((data: Paciente[]) => {
-      this.pacienteData = data;
+  loadPatients(): void {
+    this.isLoading = true;
+    this.error = null;
+
+    this.userService.getAllPaciente().subscribe({
+      next: (data: Paciente[]) => {
+        this.pacienteData = data;
+        this.isLoading = false;
+      },
+      error: (err) => {
+        console.error('Error loading patients:', err);
+        this.error = 'Failed to load patients. Please try again.';
+        this.isLoading = false;
+      }
     });
-  };
+  }
 
-
-};
+  refresh(): void {
+    this.loadPatients();
+  }
+}

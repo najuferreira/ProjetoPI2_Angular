@@ -152,29 +152,61 @@
 
         </section>
 
-        @for (item of pacienteData; track item.id) {
-        <tr class="container-info-edit-delete">
-            <!-- <tr class="container-info-edit-delete" *ngFor="let item of pedidos"> -->
-            <td>
-                <input type="checkbox" name="checkbox-pedidos" id="checkbox-pedidos">
-            </td>
-            <td class="container-user">
-                <img src="assets/imagemDoUsuario.svg" alt="avatar do usuário">
-                <div>
-                    <p>Alex</p>
-                    <p class="email">alexsandersampaiolima12&#64;gmail</p>
-                </div>
-            </td>
-            <td class="container-dashboard-info">{{item.id}}</td>
-            <td class="container-dashboard-info">{{item.nome}}</td>
-            <td class="container-dashboard-info">{{item.email}}</td>
-            <td class="container-dashboard-info">{{item.cpf}}</td>
-            <td class="container-edit-delete-btn">
-                <button class="icon-button">delete_outline</button>
-                <button class="icon-button">edit</button>
-            </td>
-        </tr> }
+        <section class="container-tabela-pacientes">
+            <div class="container-texto-sub-menu" style="width: 100%; justify-content: flex-start;">
+                <h1>Lista de Pacientes</h1>
+            </div>
 
+            <div class="tabela-wrapper">
+                <table class="tabela-pacientes">
+                    <thead>
+                        <tr class="cabecalho-tabela">
+                            <th class="coluna-checkbox">
+                                <input type="checkbox" id="selecionar-todos">
+                            </th>
+                            <th class="coluna-paciente">Paciente</th>
+                            <th class="coluna-id">ID</th>
+                            <th class="coluna-nome">Nome</th>
+                            <th class="coluna-email">Email</th>
+                            <th class="coluna-cpf">CPF</th>
+                            <th class="coluna-acoes">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (item of pacienteData; track item.id) {
+                        <tr class="linha-tabela">
+                            <td class="coluna-checkbox">
+                                <input type="checkbox" name="checkbox-pacientes">
+                            </td>
+                            <td class="coluna-paciente">
+                                <div class="container-user">
+                                    <img src="../assets/usuario.png" alt="avatar do usuário">
+                                    <div>
+                                        <p>{{item.nome}}</p>
+                                        <p class="email">{{item.email}}</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="coluna-id">{{item.id}}</td>
+                            <td class="coluna-nome">{{item.nome}}</td>
+                            <td class="coluna-email">{{item.email}}</td>
+                            <td class="coluna-cpf">{{item.cpf}}</td>
+                            <td class="coluna-cpf">{{item.numero_contato}}</td>
+                            <td class="coluna-acoes">
+                                <button class="container-estilo-botao-editar" style="width: auto; padding: 4px 8px;">
+                                    edit
+                                </button>
+                                <button class="container-estilo-botao-registrar"
+                                    style="width: auto; padding: 4px 8px; background: #dc3545;">
+                                    delete
+                                </button>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </section>
 
     </div>
 </main>

@@ -2,7 +2,7 @@
     "user": [
         {
             "id":1,
-            "nome_paciente": "Juliana",
+            "nome": "Juliana",
             "data_nascimento": "1990-05-15",
             "cpf": "123.456.789-00",
             "rg": "12.345.678-9",
