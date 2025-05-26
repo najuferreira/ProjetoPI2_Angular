@@ -1,0 +1,22 @@
+{
+    "user": [
+        {
+            "id":1,
+            "nome_paciente": "Juliana",
+            "data_nascimento": "1990-05-15",
+            "cpf": "123.456.789-00",
+            "rg": "12.345.678-9",
+            "numero_contato": "11987654321",
+            "email": "julianateste@gmail.com",
+            "genero": "Feminino",
+            "preferencia_pagamento": "Semanal",
+            "profissão": "Vendedora",
+            "CEP": "12345-678",
+            "motivo_contato": "Auto-Conhecimento",
+            "horario_atendimento": "10:00",
+            "conheceu_servico": "indicação",
+            "contato_emergencia": "11987654321",
+            "isAdmin":false
+        }
+    ]
+}
