@@ -1,40 +1,58 @@
 {
-    "user": [
-        {
-            "id": 1,
-            "nome": "Juliana",
-            "data_nascimento": "1990-05-15",
-            "cpf": "123.456.789-00",
-            "rg": "12.345.678-9",
-            "numero_contato": "11987654321",
-            "email": "julianateste@gmail.com",
-            "genero": "Feminino",
-            "preferencia_pagamento": "Semanal",
-            "profissão": "Vendedora",
-            "CEP": "12345-678",
-            "motivo_contato": "Auto-Conhecimento",
-            "horario_atendimento": "10:00",
-            "conheceu_servico": "indicação",
-            "contato_emergencia": "11987654321",
-            "isAdmin": false
-        },
-        {
-            "nome": "marcelo",
-            "data_nascimento": "2025-05-15",
-            "cpf": "53441996860",
-            "rg": "388543023",
-            "numero_contato": "1194028247",
-            "email": "alexsandersampaiolima12@gmail.com",
-            "genero": "",
-            "preferencia_pagamento": "",
-            "profissao": "Desempregado",
-            "cep": "04904110",
-            "motivo_contato": "",
-            "horario_atendimento": "Manhã",
-            "conheceu_servico": "",
-            "contato_emergencia": "",
-            "isAdmin": false,
-            "id": 2
-        }
-    ]
+  "user": [
+    {
+      "id": 1,
+      "nome": "Juliana",
+      "data_nascimento": "1990-05-15",
+      "cpf": "123.456.789-00",
+      "rg": "12.345.678-9",
+      "numero_contato": "11987654321",
+      "email": "julianateste@gmail.com",
+      "genero": "Feminino",
+      "preferencia_pagamento": "Semanal",
+      "profissão": "Vendedora",
+      "CEP": "12345-678",
+      "motivo_contato": "Auto-Conhecimento",
+      "horario_atendimento": "10:00",
+      "conheceu_servico": "indicação",
+      "contato_emergencia": "11987654321",
+      "isAdmin": false
+    },
+    {
+      "nome": "marcelo",
+      "data_nascimento": "2025-05-15",
+      "cpf": "53441996860",
+      "rg": "388543023",
+      "numero_contato": "1194028247",
+      "email": "alexsandersampaiolima12@gmail.com",
+      "genero": "",
+      "preferencia_pagamento": "",
+      "profissao": "Desempregado",
+      "cep": "04904110",
+      "motivo_contato": "",
+      "horario_atendimento": "Manhã",
+      "conheceu_servico": "",
+      "contato_emergencia": "",
+      "isAdmin": false,
+      "id": 2
+    },
+    {
+      "nome": "",
+      "data_nascimento": "",
+      "cpf": "",
+      "rg": "",
+      "numero_contato": "",
+      "email": "",
+      "genero": "",
+      "preferencia_pagamento": "",
+      "profissao": "",
+      "cep": "",
+      "motivo_contato": "",
+      "horario_atendimento": "",
+      "conheceu_servico": "",
+      "contato_emergencia": "",
+      "isAdmin": false,
+      "id": 3
+    }
+  ]
 }
