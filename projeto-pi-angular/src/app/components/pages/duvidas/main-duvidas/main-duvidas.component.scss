@@ -128,28 +128,39 @@
 }
 
 .container-espaco-botao {
-    width: 510px;
-    height: 36px;
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    align-self: stretch;
+  width: 100%;
+  max-width: 510px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start; 
+  gap: 8px;
+  margin-top: 8px;
 }
 
 .container-estilo-botao {
-    display: flex;
-    width: 64px;
-    height: 36px;
-    padding: 8px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 6px;
-    background: #134bc33d;
-    border: none;
-    font-size: 14px;
-    cursor: pointer;
+  display: flex;
+  width: 100px;
+  height: 36px;
+  padding: 8px;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #2254b8, #1f5bdd);
+  color: white;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
+
+.container-estilo-botao:active {
+  background: linear-gradient(135deg, #809ad3, #7898dd);
+  transform: scale(0.97);
+  animation: none;
+}
+
 
 .container-botoes-envio {
     display: flex;
