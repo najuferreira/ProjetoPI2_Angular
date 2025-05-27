@@ -3,7 +3,6 @@ import { Paciente, User } from '../interfaces/user';
 import { Observable, retry } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -13,13 +12,11 @@ export class UserService {
 
   urlUser = "http://localhost:3000/user";
 
-  getAllPaciente() {
-    let data: Observable<Paciente[]>;
-    data = this.http.get<Paciente[]>(this.urlUser);
-    return data;
+  getAllPaciente(): Observable<Paciente[]> {
+    return this.http.get<Paciente[]>(this.urlUser);
   };
 
-  postPaciente(user: Omit<Paciente, 'id' | 'isAdmin' | 'password'>) {
+  postPaciente(user: Omit<Paciente, 'id' | 'isAdmin' | 'password'>): Observable<Paciente> {
     const userCompleto = {
       ...user,
       isAdmin: false
@@ -28,4 +25,8 @@ export class UserService {
 
     return this.http.post<Paciente>(this.urlUser, userCompleto);
   };
-};
+
+  deletePaciente(id: number): Observable<any> {
+    return this.http.delete(`${this.urlUser}/${id}`);
+  };
+}

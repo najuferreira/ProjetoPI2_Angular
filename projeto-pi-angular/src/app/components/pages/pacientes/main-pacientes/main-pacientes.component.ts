@@ -64,11 +64,27 @@ export class MainPacientesComponent implements OnInit {
     this.userService.postPaciente(novoUser).subscribe({
       next: (response) => {
         console.log(`Paciente criado ${response}`);
+        this.loadPatients(); // Recarrega a lista após adicionar
       },
       error(e) {
         console.error(`Erro ao criar Estoque ${e}`);
       }
     })
+  }
+
+  deletePaciente(id: number): void {
+    if (confirm('Tem certeza que deseja deletar este paciente?')) {
+      this.userService.deletePaciente(id).subscribe({
+        next: () => {
+          console.log('Paciente deletado com sucesso');
+          this.loadPatients(); // Recarrega a lista após deletar
+        },
+        error: (err) => {
+          console.error('Erro ao deletar paciente:', err);
+          this.error = 'Falha ao deletar paciente. Por favor, tente novamente.';
+        }
+      });
+    }
   }
 
   loadPatients(): void {
