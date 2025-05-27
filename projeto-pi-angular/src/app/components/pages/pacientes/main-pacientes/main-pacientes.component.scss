@@ -136,14 +136,31 @@ main {
 }
 
 .container-estilo-botao {
-    display: flex;
-    width: 100px;
-    height: 36px;
-    padding: 8px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 6px;
-    background: #134bc33d;
+  display: flex;
+  width: 100px;
+  height: 36px;
+  padding: 8px;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #2254b8, #1f5bdd);
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+
+  // Efeito ao passar o mouse (flutuar suavemente)
+  &:hover {
+    animation: float 1.5s ease-in-out infinite;
+  }
+
+  // Efeito ao clicar (escurecer e pressionar)
+  &:active {
+    background: linear-gradient(135deg, #809ad3, #7898dd);
+    transform: scale(0.97);
+    animation: none; // desativa flutuação ao clicar
+  }
 }
 
 .container-botoes-envio {
