@@ -12,14 +12,18 @@
             <a routerLink="/admin" class="container-menu-navegacao" routerLinkActive="active">Início</a>
             <a routerLink="/admin/pacientes" class="container-menu-navegacao" routerLinkActive="active">Pacientes</a>
             <a routerLink="/admin/agenda" class="container-menu-navegacao" routerLinkActive="active">Agenda</a>
-            <a routerLink="/admin/duvidas" class="container-menu-navegacao" routerLinkActive="active">Registro de
-                Dúvidas</a>
+            <a routerLink="/admin/duvidas" class="container-menu-navegacao" routerLinkActive="active">Dúvidas</a>
             <a routerLink="/admin/feedback" class="container-menu-navegacao" routerLinkActive="active">Feedback</a>
         </nav>
 
-        <div class="container-logof">
-            <a routerLink="/login" class="logof" routerLink="active">Log Out</a>
+        
+<button class="Btn-login-user" type="button" routerLink="/login" routerLinkActive="active">
+<!-- imagem/icone em svg -->
+    <div class="sign"><img src="assets/logoff.png" alt="icone-logoff"></div>
+  
+  <div class="text">LogOut</div>
+</button>
 
-        </div>
+
     </div>
 </header>
