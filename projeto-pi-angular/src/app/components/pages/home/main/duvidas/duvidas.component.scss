@@ -48,7 +48,6 @@
   background: var(--Default-White, #FFF);
 }
 
-
 .accordion-header {
   display: flex;
   justify-content: space-between;
@@ -75,21 +74,27 @@
   transition: transform 0.3s ease;
 }
 
-.accordion-content {
-  display: none;
-  padding: 16px;
+/* Ajuste para o conteúdo da resposta */
+
+.accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 16px;
   font-family: "Inter", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
-  color: #333;
+  color: var(--PrimeiraCOR, #0F4C83); /* usando a cor principal */
   background-color: var(--Default-White, #FFF);
+  text-align: center; /* centraliza o texto */
+  transition: max-height 0.4s ease, padding 0.4s ease;
 }
 
-.accordion-content p {
+.accordion-body.show {
+  max-height: 500px; /* ajuste se precisar */
+  padding: 16px;
+}
+
+.accordion-body p {
   margin: 0;
-}
-
-.accordion-item.active .accordion-content {
-  display: block;
 }
