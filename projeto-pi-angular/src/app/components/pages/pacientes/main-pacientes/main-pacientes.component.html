@@ -176,9 +176,10 @@
                             </th>
                             <th class="coluna-paciente">Paciente</th>
                             <th class="coluna-id">ID</th>
-                            <th class="coluna-nome">Nome</th>
+                            <!-- <th class="coluna-nome">Nome</th> -->
                             <th class="coluna-email">Email</th>
                             <th class="coluna-cpf">CPF</th>
+                            <th class="coluna-celular">Celular</th>
                             <th class="coluna-acoes">Ações</th>
                         </tr>
                     </thead>
@@ -193,23 +194,21 @@
                                     <img src="../assets/usuario.png" alt="avatar do usuário">
                                     <div>
                                         <p>{{item.nome}}</p>
-                                        <p class="email">{{item.email}}</p>
+                                        <!-- <p class="email">{{item.email}}</p> -->
                                     </div>
                                 </div>
                             </td>
                             <td class="coluna-id">{{item.id}}</td>
-                            <td class="coluna-nome">{{item.nome}}</td>
+                            <!-- <td class="coluna-nome">{{item.nome}}</td> -->
                             <td class="coluna-email">{{item.email}}</td>
                             <td class="coluna-cpf">{{item.cpf}}</td>
-                            <td class="coluna-cpf">{{item.numero_contato}}</td>
+                            <td class="coluna-numero_contato">{{item.numero_contato}}</td>
                             <td class="coluna-acoes">
                                 <button class="container-estilo-botao-editar" style="width: auto; padding: 4px 8px;">
-                                    edit
-                                </button>
-                                <button class="container-estilo-botao-registrar"
-                                    style="width: auto; padding: 4px 8px; background: #dc3545;">
-                                    delete
-                                </button>
+                                    edit </button>
+                                <button class="botao-deletar" style="width: auto; padding: 4px 8px; background: #dc3545"
+                                    (click)="deletePaciente(item.id)">Deletar</button>
+
                             </td>
                         </tr>
                         }

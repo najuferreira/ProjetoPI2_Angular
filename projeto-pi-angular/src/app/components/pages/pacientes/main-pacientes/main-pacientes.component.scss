@@ -3,6 +3,7 @@ main {
     flex-direction: column;
     align-items: center;
 }
+
 .container-pagina {
     max-width: 1440px;
     min-height: 1191px;
@@ -218,166 +219,169 @@ input[type="date"].input-nome {
 }
 
 .container-estilo-botao-editar:hover {
-    background: #dfe6f0; }
+    background: #dfe6f0;
+}
 
-        /* Estilos para a tabela de pacientes */
-        .container-tabela-pacientes {
-            width: 100%;
-            max-width: 1200px;
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-            margin-top: 40px;
-        }
+/* Estilos para a tabela de pacientes */
+.container-tabela-pacientes {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 40px;
+}
+
+.tabela-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 6px;
+    border: 1px solid #134bc3;
+}
+
+.tabela-pacientes {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+}
+
+.cabecalho-tabela {
+    background: rgba(19, 75, 195, 0.1);
+}
+
+.cabecalho-tabela th {
+    color: #0f4c83;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    padding: 12px 16px;
+    text-align: left;
+}
+
+.linha-tabela {
+    border-bottom: 1px solid rgba(19, 75, 195, 0.1);
+}
+
+.linha-tabela:last-child {
+    border-bottom: none;
+}
+
+.linha-tabela td {
+    padding: 12px 16px;
+    color: #000;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.coluna-checkbox {
+    width: 40px;
+    text-align: center;
+}
+
+.coluna-checkbox input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+}
+
+.coluna-paciente {
+    min-width: 200px;
+}
+
+.coluna-id {
+    width: 80px;
+}
+
+.coluna-nome {
+    min-width: 200px;
+}
+
+.coluna-email {
+    min-width: 220px;
+}
+
+.coluna-cpf {
+    width: 140px;
+}
+
+.coluna-acoes {
+    width: 150px;
+}
+
+.container-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.container-user img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.container-user .email {
+    color: #666;
+    font-size: 12px;
+    margin-top: 2px;
+}
+
+/* Ajustes para os botões dentro da tabela */
+.linha-tabela .container-estilo-botao-editar,
+.linha-tabela .container-estilo-botao-registrar {
+    height: 32px;
+    font-size: 14px;
+    margin: 0 4px;
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+    .container-pagina {
+        padding: 23px 60px 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container-pagina {
+        padding: 23px 30px 60px;
+    }
+
+    .tabela-wrapper {
+        border: none;
+    }
+
+    .cabecalho-tabela {
+        display: none;
+    }
+
+    .linha-tabela {
+        display: flex;
+        flex-direction: column;
+        padding: 16px;
+        margin-bottom: 16px;
+        border: 1px solid rgba(19, 75, 195, 0.1);
+        border-radius: 6px;
+    }
+
+    .linha-tabela td {
+        padding: 8px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .linha-tabela td::before {
+        content: attr(data-label);
+        font-weight: 500;
+        color: #0f4c83;
+        margin-right: 16px;
+    }
+
+    .coluna-acoes {
+        justify-content: flex-end !important;
+        gap: 8px;
+    }
+
     
-        .tabela-wrapper {
-            width: 100%;
-            overflow-x: auto;
-            border-radius: 6px;
-            border: 1px solid #134bc3;
-        }
-    
-        .tabela-pacientes {
-            width: 100%;
-            border-collapse: collapse;
-            background: #fff;
-        }
-    
-        .cabecalho-tabela {
-            background: rgba(19, 75, 195, 0.1);
-        }
-    
-        .cabecalho-tabela th {
-            color: #0f4c83;
-            font-size: 14px;
-            font-weight: 500;
-            line-height: 20px;
-            padding: 12px 16px;
-            text-align: left;
-        }
-    
-        .linha-tabela {
-            border-bottom: 1px solid rgba(19, 75, 195, 0.1);
-        }
-    
-        .linha-tabela:last-child {
-            border-bottom: none;
-        }
-    
-        .linha-tabela td {
-            padding: 12px 16px;
-            color: #000;
-            font-size: 14px;
-            font-weight: 400;
-            line-height: 20px;
-        }
-    
-        .coluna-checkbox {
-            width: 40px;
-            text-align: center;
-        }
-    
-        .coluna-checkbox input[type="checkbox"] {
-            width: 16px;
-            height: 16px;
-        }
-    
-        .coluna-paciente {
-            min-width: 200px;
-        }
-    
-        .coluna-id {
-            width: 80px;
-        }
-    
-        .coluna-nome {
-            min-width: 200px;
-        }
-    
-        .coluna-email {
-            min-width: 220px;
-        }
-    
-        .coluna-cpf {
-            width: 140px;
-        }
-    
-        .coluna-acoes {
-            width: 150px;
-        }
-    
-        .container-user {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-    
-        .container-user img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-    
-        .container-user .email {
-            color: #666;
-            font-size: 12px;
-            margin-top: 2px;
-        }
-    
-        /* Ajustes para os botões dentro da tabela */
-        .linha-tabela .container-estilo-botao-editar,
-        .linha-tabela .container-estilo-botao-registrar {
-            height: 32px;
-            font-size: 14px;
-            margin: 0 4px;
-        }
-    
-        /* Responsividade */
-        @media (max-width: 1200px) {
-            .container-pagina {
-                padding: 23px 60px 60px;
-            }
-        }
-    
-        @media (max-width: 768px) {
-            .container-pagina {
-                padding: 23px 30px 60px;
-            }
-    
-            .tabela-wrapper {
-                border: none;
-            }
-    
-            .cabecalho-tabela {
-                display: none;
-            }
-    
-            .linha-tabela {
-                display: flex;
-                flex-direction: column;
-                padding: 16px;
-                margin-bottom: 16px;
-                border: 1px solid rgba(19, 75, 195, 0.1);
-                border-radius: 6px;
-            }
-    
-            .linha-tabela td {
-                padding: 8px 0;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-    
-            .linha-tabela td::before {
-                content: attr(data-label);
-                font-weight: 500;
-                color: #0f4c83;
-                margin-right: 16px;
-            }
-    
-            .coluna-acoes {
-                justify-content: flex-end !important;
-                gap: 8px;
-            }
-        }
+}
