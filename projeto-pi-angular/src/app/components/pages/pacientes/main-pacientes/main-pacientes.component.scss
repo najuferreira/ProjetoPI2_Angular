@@ -136,31 +136,31 @@ main {
 }
 
 .container-estilo-botao {
-  display: flex;
-  width: 100px;
-  height: 36px;
-  padding: 8px;
-  justify-content: center;
-  align-items: center;
-  border: none;
-  border-radius: 6px;
-  background: linear-gradient(135deg, #2254b8, #1f5bdd);
-  color: white;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background 0.3s ease;
+    display: flex;
+    width: 100px;
+    height: 36px;
+    padding: 8px;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 6px;
+    background: linear-gradient(135deg, #2254b8, #1f5bdd);
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease;
 
-  // Efeito ao passar o mouse (flutuar suavemente)
-  &:hover {
-    animation: float 1.5s ease-in-out infinite;
-  }
+    // Efeito ao passar o mouse (flutuar suavemente)
+    &:hover {
+        animation: float 1.5s ease-in-out infinite;
+    }
 
-  // Efeito ao clicar (escurecer e pressionar)
-  &:active {
-    background: linear-gradient(135deg, #809ad3, #7898dd);
-    transform: scale(0.97);
-    animation: none; // desativa flutuação ao clicar
-  }
+    // Efeito ao clicar (escurecer e pressionar)
+    &:active {
+        background: linear-gradient(135deg, #809ad3, #7898dd);
+        transform: scale(0.97);
+        animation: none; // desativa flutuação ao clicar
+    }
 }
 
 .container-botoes-envio {
@@ -198,6 +198,21 @@ input[type="date"].input-nome {
     font-weight: 500;
     line-height: 24px;
 }
+
+.botao-deletar {
+    display: flex;
+    width: auto;
+    padding: 4px 8px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    border: 1px solid #c31313;
+    color: #e21515;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+}
+
 
 .container-estilo-botao-registrar {
     display: flex;
@@ -400,5 +415,30 @@ input[type="date"].input-nome {
         gap: 8px;
     }
 
-    
+
+}
+
+/* Estilos para campos inválidos */
+.ng-invalid.ng-touched {
+    border-color: #dc3545;
+}
+
+.error-message {
+    color: #e41b2f;
+    font-size: 0.8rem;
+    display: block;
+    margin-top: 5px;
+}
+
+/* Estilo para botões selecionados */
+.botao-selecionado {
+    background-color: #3f51b5;
+    color: white;
+    border: 2px solid #303f9f;
+}
+
+/* Estilo para botão desabilitado */
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }

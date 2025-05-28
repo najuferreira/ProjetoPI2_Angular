@@ -13,7 +13,8 @@
             <h1 class="titulo-texto">Registro de pacientes</h1>
         </section>
 
-        <form [formGroup]="pacienteForm" method="post" class="container-formulario">
+        <!-- Formulário reativo -->
+        <form [formGroup]="pacienteForm" class="container-formulario">
 
             <!-- Campos Nome e Data de nascimento -->
             <div class="container-dupla-formulario">
@@ -21,12 +22,27 @@
                     <p class="texto-solicitacao">Nome</p>
                     <input formControlName="nome" type="text" class="input-nome" placeholder="Digite o nome completo" />
                     <p class="texto-obrigatorio">Obrigatório*</p>
+                    @if (f['nome'].invalid && (f['nome'].dirty || f['nome'].touched)) {
+                    <div class="error-message">
+                        @if (f['nome'].errors?.['required']) {
+                        <span>Nome é obrigatório</span>
+                        }
+                        @if (f['nome'].errors?.['minlength']) {
+                        <span>Mínimo 3 caracteres</span>
+                        }
+                    </div>
+                    }
                 </div>
                 <div class="container-texto-solicitacao">
                     <p class="texto-solicitacao">Data de nascimento</p>
                     <input formControlName="data_nascimento" type="date" class="input-nome" id="data_nascimento"
                         name="data_nascimento" min="1990-01-01" max="2025-12-31" />
                     <p class="texto-obrigatorio">Obrigatório*</p>
+                    @if (f['data_nascimento'].invalid && (f['data_nascimento'].dirty || f['data_nascimento'].touched)) {
+                    <div class="error-message">
+                        <span>Data de nascimento é obrigatória</span>
+                    </div>
+                    }
                 </div>
             </div>
 
@@ -36,11 +52,26 @@
                     <p class="texto-solicitacao">CPF</p>
                     <input formControlName="cpf" type="text" class="input-nome" placeholder="Digite sem pontuações" />
                     <p class="texto-obrigatorio">Obrigatório*</p>
+                    @if (f['cpf'].invalid && (f['cpf'].dirty || f['cpf'].touched)) {
+                    <div class="error-message">
+                        @if (f['cpf'].errors?.['required']) {
+                        <span>CPF é obrigatório</span>
+                        }
+                        @if (f['cpf'].errors?.['pattern']) {
+                        <span>Digite 11 números sem pontuação</span>
+                        }
+                    </div>
+                    }
                 </div>
                 <div class="container-texto-solicitacao">
                     <p class="texto-solicitacao">RG</p>
                     <input formControlName="rg" type="text" class="input-nome" placeholder="Digite sem pontuações" />
                     <p class="texto-obrigatorio">Obrigatório*</p>
+                    @if (f['rg'].invalid && (f['rg'].dirty || f['rg'].touched)) {
+                    <div class="error-message">
+                        <span>RG é obrigatório</span>
+                    </div>
+                    }
                 </div>
             </div>
 
@@ -51,11 +82,31 @@
                     <input formControlName="numero_contato" type="text" class="input-nome"
                         placeholder="Digite um telefone" />
                     <p class="texto-obrigatorio">Obrigatório*</p>
+                    @if (f['numero_contato'].invalid && (f['numero_contato'].dirty || f['numero_contato'].touched)) {
+                    <div class="error-message">
+                        @if (f['numero_contato'].errors?.['required']) {
+                        <span>Telefone é obrigatório</span>
+                        }
+                        @if (f['numero_contato'].errors?.['pattern']) {
+                        <span>Digite 10 ou 11 números</span>
+                        }
+                    </div>
+                    }
                 </div>
                 <div class="container-texto-solicitacao">
                     <p class="texto-solicitacao">Email</p>
-                    <input formControlName="email" type="text" class="input-nome" placeholder="Digite um email" />
+                    <input formControlName="email" type="email" class="input-nome" placeholder="Digite um email" />
                     <p class="texto-obrigatorio">Obrigatório*</p>
+                    @if (f['email'].invalid && (f['email'].dirty || f['email'].touched)) {
+                    <div class="error-message">
+                        @if (f['email'].errors?.['required']) {
+                        <span>Email é obrigatório</span>
+                        }
+                        @if (f['email'].errors?.['email']) {
+                        <span>Digite um email válido</span>
+                        }
+                    </div>
+                    }
                 </div>
             </div>
 
@@ -64,25 +115,38 @@
                 <div class="container-texto-solicitacao">
                     <p class="texto-solicitacao">Gênero</p>
                     <div class="container-espaco-botao">
-                        <button class="container-estilo-botao">Masculino</button>
-                        <button class="container-estilo-botao">Feminino</button>
-                        <button class="container-estilo-botao">Outro</button>
-                        <input formControlName="genero" type="text" type="text">
+                        @for (genero of generos; track genero) {
+                        <button type="button" class="container-estilo-botao"
+                            [class.botao-selecionado]="opcaoSelecionada('genero', genero)"
+                            (click)="selecionarOpcao('genero', genero)">
+                            {{ genero }}
+                        </button>
+                        }
+                        <input formControlName="genero" type="hidden">
                         <p class="texto-obrigatorio">Obrigatório*</p>
+                        @if (f['genero'].invalid && f['genero'].touched) {
+                        <span class="error-message">Selecione uma opção</span>
+                        }
                     </div>
                 </div>
                 <div class="container-texto-solicitacao">
                     <p class="texto-solicitacao">Preferência de pagamento</p>
                     <div class="container-espaco-botao">
-                        <button class="container-estilo-botao">Mensal</button>
-                        <button class="container-estilo-botao">Semanal</button>
-                        <input formControlName="preferencia_pagamento" type="text">
+                        @for (pagamento of pagamentos; track pagamento) {
+                        <button type="button" class="container-estilo-botao"
+                            [class.botao-selecionado]="opcaoSelecionada('preferencia_pagamento', pagamento)"
+                            (click)="selecionarOpcao('preferencia_pagamento', pagamento)">
+                            {{ pagamento }}
+                        </button>
+                        }
+                        <input formControlName="preferencia_pagamento" type="hidden">
                         <p class="texto-obrigatorio">Obrigatório*</p>
+                        @if (f['preferencia_pagamento'].invalid && f['preferencia_pagamento'].touched) {
+                        <span class="error-message">Selecione uma opção</span>
+                        }
                     </div>
                 </div>
             </div>
-
-
 
             <!-- Profissão e CEP -->
             <div class="container-dupla-formulario">
@@ -93,8 +157,18 @@
                 </div>
                 <div class="container-texto-solicitacao">
                     <p class="texto-solicitacao">CEP</p>
-                    <input formControlName="cep" type="text" class="input-nome" placeholder="Digite sem pontuações" />
+                    <input formControlName="cep" type="text" class="input-nome" placeholder="Digite com pontuação" />
                     <p class="texto-obrigatorio">Obrigatório*</p>
+                    @if (f['cep'].invalid && (f['cep'].dirty || f['cep'].touched)) {
+                    <div class="error-message">
+                        @if (f['cep'].errors?.['required']) {
+                        <span>CEP é obrigatório</span>
+                        }
+                        @if (f['cep'].errors?.['pattern']) {
+                        <span>Digite números com pontuação</span>
+                        }
+                    </div>
+                    }
                 </div>
             </div>
 
@@ -103,29 +177,39 @@
                 <div class="container-texto-solicitacao">
                     <p class="texto-solicitacao">Motivo de contato</p>
                     <div class="container-espaco-botao">
-                        <button class="container-estilo-botao">Ansiedade</button>
-                        <button class="container-estilo-botao">Depressão</button>
-                        <button class="container-estilo-botao">Estresse</button>
-                        <button class="container-estilo-botao">Relacionamento</button>
-                        <button class="container-estilo-botao">
-                            Auto-conhecimento
+                        @for (motivo of motivos; track motivo) {
+                        <button type="button" class="container-estilo-botao"
+                            [class.botao-selecionado]="opcaoSelecionada('motivo_contato', motivo)"
+                            (click)="selecionarOpcao('motivo_contato', motivo)">
+                            {{ motivo }}
                         </button>
-                        <input formControlName="motivo_contato" type="text" name="motivo_contato" id="motivo_contato">
+                        }
+                        <input formControlName="motivo_contato" type="hidden">
                         <p class="texto-obrigatorio">Obrigatório*</p>
+                        @if (f['motivo_contato'].invalid && f['motivo_contato'].touched) {
+                        <span class="error-message">Selecione uma opção</span>
+                        }
                     </div>
-                    <input type="text" class="input-nome" placeholder="Outro? Digite aqui..." />
+                    <input type="text" class="input-nome" placeholder="Outro? Digite aqui..."
+                        (input)="selecionarOpcao('motivo_contato', $any($event.target).value)"
+                        [style.display]="f['motivo_contato'].value === 'Outro' ? 'block' : 'none'">
                 </div>
 
                 <div class="container-texto-solicitacao">
                     <p class="texto-solicitacao">Horário de atendimento</p>
                     <div class="container-espaco-botao">
-                        <button class="container-estilo-botao">Manhã</button>
-                        <button class="container-estilo-botao">Tarde</button>
-                        <button class="container-estilo-botao">Noite</button>
-                        <button class="container-estilo-botao">Indiferente</button>
+                        @for (horario of horarios; track horario) {
+                        <button type="button" class="container-estilo-botao"
+                            [class.botao-selecionado]="opcaoSelecionada('horario_atendimento', horario)"
+                            (click)="selecionarOpcao('horario_atendimento', horario)">
+                            {{ horario }}
+                        </button>
+                        }
+                        <input formControlName="horario_atendimento" type="hidden">
                         <p class="texto-obrigatorio">Obrigatório*</p>
-                        <input formControlName="horario_atendimento" type="text" name="horario_atendimento"
-                            id="horario_atendimento">
+                        @if (f['horario_atendimento'].invalid && f['horario_atendimento'].touched) {
+                        <span class="error-message">Selecione uma opção</span>
+                        }
                     </div>
                 </div>
             </div>
@@ -135,13 +219,18 @@
                 <div class="container-texto-solicitacao">
                     <p class="texto-solicitacao">Como conheceu esse serviço</p>
                     <div class="container-espaco-botao">
-                        <button class="container-estilo-botao">Indicação</button>
-                        <button class="container-estilo-botao">Rede social</button>
-                        <button class="container-estilo-botao">Google</button>
-                        <button class="container-estilo-botao">Outro</button>
+                        @for (origem of origens; track origem) {
+                        <button type="button" class="container-estilo-botao"
+                            [class.botao-selecionado]="opcaoSelecionada('conheceu_servico', origem)"
+                            (click)="selecionarOpcao('conheceu_servico', origem)">
+                            {{ origem }}
+                        </button>
+                        }
+                        <input formControlName="conheceu_servico" type="hidden">
                         <p class="texto-obrigatorio">Obrigatório*</p>
-                        <input formControlName="conheceu_servico" type="text" name="conheceu_servico"
-                            id="conheceu_servico">
+                        @if (f['conheceu_servico'].invalid && f['conheceu_servico'].touched) {
+                        <span class="error-message">Selecione uma opção</span>
+                        }
                     </div>
                 </div>
                 <div class="container-texto-solicitacao">
@@ -149,17 +238,25 @@
                     <input formControlName="contato_emergencia" type="text" class="input-nome"
                         placeholder="Digite um número de telefone" />
                     <p class="texto-obrigatorio">Obrigatório*</p>
+                    @if (f['contato_emergencia'].invalid && (f['contato_emergencia'].dirty ||
+                    f['contato_emergencia'].touched)) {
+                    <div class="error-message">
+                        @if (f['contato_emergencia'].errors?.['required']) {
+                        <span>Contato de emergência é obrigatório</span>
+                        }
+                        @if (f['contato_emergencia'].errors?.['pattern']) {
+                        <span>Digite 10 ou 11 números</span>
+                        }
+                    </div>
+                    }
                 </div>
             </div>
-
         </form>
 
         <section class="container-botoes-envio">
-
             <button type="button" class="container-estilo-botao-editar">Editar</button>
-            <button type="submit" class="container-estilo-botao-registrar"
-                (click)="registrarPaciente()">Registrar</button>
-
+            <button type="submit" class="container-estilo-botao-registrar" (click)="registrarPaciente()"
+                [disabled]="pacienteForm.invalid">Registrar</button>
         </section>
         <!-- Espaço do request - Lista de pacientes  -->
         <section class="container-tabela-pacientes">
@@ -176,10 +273,13 @@
                             </th>
                             <th class="coluna-paciente">Paciente</th>
                             <th class="coluna-id">ID</th>
-                            <!-- <th class="coluna-nome">Nome</th> -->
                             <th class="coluna-email">Email</th>
                             <th class="coluna-cpf">CPF</th>
                             <th class="coluna-celular">Celular</th>
+                            <th class="coluna-celular">Gênero</th>
+                            <th class="coluna-celular">Horario </th>
+                            <th class="coluna-celular">Motivo </th>
+                            <th class="coluna-celular"> Como conheceu</th>
                             <th class="coluna-acoes">Ações</th>
                         </tr>
                     </thead>
@@ -194,15 +294,19 @@
                                     <img src="../assets/usuario.png" alt="avatar do usuário">
                                     <div>
                                         <p>{{item.nome}}</p>
-
+                                        <!-- <p class="email">{{item.email}}</p> -->
                                     </div>
                                 </div>
                             </td>
                             <td class="coluna-id">{{item.id}}</td>
-
+                            <!-- <td class="coluna-nome">{{item.nome}}</td> -->
                             <td class="coluna-email">{{item.email}}</td>
                             <td class="coluna-cpf">{{item.cpf}}</td>
                             <td class="coluna-numero_contato">{{item.numero_contato}}</td>
+                            <td class="coluna-numero_contato">{{item.genero}}</td>
+                            <td class="coluna-numero_contato">{{item.horario_atendimento}}</td>
+                            <td class="coluna-numero_contato">{{item.motivo_contato}}</td>
+                            <td class="coluna-numero_contato">{{item.conheceu_servico}}</td>
                             <td class="coluna-acoes">
                                 <div class="botoes-acoes">
                                     <button class="botao-iconico" title="Editar">
@@ -221,6 +325,5 @@
                 </table>
             </div>
         </section>
-
     </div>
 </main>
