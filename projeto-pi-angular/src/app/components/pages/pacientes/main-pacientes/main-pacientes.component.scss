@@ -327,13 +327,30 @@ input[type="date"].input-nome {
     margin-top: 2px;
 }
 
-/* Ajustes para os botões dentro da tabela */
-.linha-tabela .container-estilo-botao-editar,
-.linha-tabela .container-estilo-botao-registrar {
-    height: 32px;
-    font-size: 14px;
-    margin: 0 4px;
+.botoes-acoes {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  align-items: center;
 }
+
+.botao-iconico {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 4px;
+  color: #555;
+  transition: color 0.2s;
+}
+
+.botao-iconico:hover {
+  color: #007bff; /* azul leve no hover */
+}
+
+.botao-iconico.deletar:hover {
+  color: #dc3545; /* vermelho no hover */
+} 
 
 /* Responsividade */
 @media (max-width: 1200px) {

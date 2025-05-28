@@ -161,7 +161,7 @@
                 (click)="registrarPaciente()">Registrar</button>
 
         </section>
-
+        <!-- Espaço do request - Lista de pacientes  -->
         <section class="container-tabela-pacientes">
             <div class="container-texto-sub-menu" style="width: 100%; justify-content: flex-start;">
                 <h1>Lista de Pacientes</h1>
@@ -194,22 +194,27 @@
                                     <img src="../assets/usuario.png" alt="avatar do usuário">
                                     <div>
                                         <p>{{item.nome}}</p>
-                                        <!-- <p class="email">{{item.email}}</p> -->
+
                                     </div>
                                 </div>
                             </td>
                             <td class="coluna-id">{{item.id}}</td>
-                            <!-- <td class="coluna-nome">{{item.nome}}</td> -->
+
                             <td class="coluna-email">{{item.email}}</td>
                             <td class="coluna-cpf">{{item.cpf}}</td>
                             <td class="coluna-numero_contato">{{item.numero_contato}}</td>
                             <td class="coluna-acoes">
-                                <button class="container-estilo-botao-editar" style="width: auto; padding: 4px 8px;">
-                                    edit </button>
-                                <button class="botao-deletar" style="width: auto; padding: 4px 8px; background: #dc3545"
-                                    (click)="deletePaciente(item.id)">Deletar</button>
-
+                                <div class="botoes-acoes">
+                                    <button class="botao-iconico" title="Editar">
+                                        ✏️
+                                    </button>
+                                    <button class="botao-iconico deletar" title="Deletar"
+                                        (click)="deletePaciente(item.id)">
+                                        🗑️ 
+                                    </button>
+                                </div>
                             </td>
+
                         </tr>
                         }
                     </tbody>
