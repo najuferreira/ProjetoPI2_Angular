@@ -280,6 +280,7 @@
                             <th class="coluna-celular">Horario </th>
                             <th class="coluna-celular">Motivo </th>
                             <th class="coluna-celular"> Como conheceu</th>
+                            <th class="coluna-celular"> Contato de Emergência</th>
                             <th class="coluna-acoes">Ações</th>
                         </tr>
                     </thead>
@@ -307,17 +308,14 @@
                             <td class="coluna-numero_contato">{{item.horario_atendimento}}</td>
                             <td class="coluna-numero_contato">{{item.motivo_contato}}</td>
                             <td class="coluna-numero_contato">{{item.conheceu_servico}}</td>
+                            <td class="coluna-numero_contato">{{item.contato_emergencia}}</td>
                             <td class="coluna-acoes">
-                                <div class="botoes-acoes">
-                                    <button class="botao-iconico" title="Editar">
-                                        ✏️
-                                    </button>
-                                    <button class="botao-iconico deletar" title="Deletar"
-                                        (click)="deletePaciente(item.id)">
-                                        🗑️ 
-                                    </button>
-                                    <!-- testando  -->
-                                </div>
+              <button class="container-estilo-botao-editar" style="width: auto; padding: 4px 8px;"><i
+                                        class="far fa-edit"></i></button>
+
+
+                                <button class="botao-deletar" style="width: auto; padding: 4px 8px;"
+                                    (click)="deletePaciente(item.id)"><i class="fa-solid fa-trash"></i></button>
                             </td>
 
                         </tr>
