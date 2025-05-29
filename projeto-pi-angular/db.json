@@ -10,15 +10,17 @@
       "email": "julianateste@gmail.com",
       "genero": "Feminino",
       "preferencia_pagamento": "Semanal",
-      "profissão": "Vendedora",
-      "CEP": "12345-678",
+      "profissao": "Vendedora",
+      "cep": "12345-678",
       "motivo_contato": "Auto-Conhecimento",
       "horario_atendimento": "10:00",
       "conheceu_servico": "indicação",
       "contato_emergencia": "11987654321",
-      "isAdmin": false
+      "isAdmin": false,
+      "password": "juliana123"
     },
     {
+      "id": 2,
       "nome": "marcelo",
       "data_nascimento": "2025-05-15",
       "cpf": "53441996860",
@@ -34,9 +36,10 @@
       "conheceu_servico": "",
       "contato_emergencia": "",
       "isAdmin": false,
-      "id": 2
+      "password": "marcelo123"
     },
     {
+      "id": 3,
       "nome": "Julia",
       "data_nascimento": "2025-05-29",
       "cpf": "40440440440",
@@ -52,7 +55,14 @@
       "conheceu_servico": "Rede social",
       "contato_emergencia": "11932321818",
       "isAdmin": false,
-      "id": 3
+      "password": "julia123"
+    },
+    {
+      "id": 4,
+      "nome": "Administrador",
+      "email": "admin@email.com",
+      "password": "admin123",
+      "isAdmin": true
     }
   ]
 }
