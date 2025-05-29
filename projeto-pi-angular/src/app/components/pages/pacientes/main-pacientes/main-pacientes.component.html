@@ -258,7 +258,7 @@
             <button type="submit" class="container-estilo-botao-registrar" (click)="registrarPaciente()"
                 [disabled]="pacienteForm.invalid">Registrar</button>
         </section>
-
+        <!-- Espaço do request - Lista de pacientes  -->
         <section class="container-tabela-pacientes">
             <div class="container-texto-sub-menu" style="width: 100%; justify-content: flex-start;">
                 <h1>Lista de Pacientes</h1>
@@ -295,10 +295,12 @@
                                     <img src="../assets/usuario.png" alt="avatar do usuário">
                                     <div>
                                         <p>{{item.nome}}</p>
+                                        <!-- <p class="email">{{item.email}}</p> -->
                                     </div>
                                 </div>
                             </td>
                             <td class="coluna-id">{{item.id}}</td>
+                            <!-- <td class="coluna-nome">{{item.nome}}</td> -->
                             <td class="coluna-email">{{item.email}}</td>
                             <td class="coluna-cpf">{{item.cpf}}</td>
                             <td class="coluna-numero_contato">{{item.numero_contato}}</td>
@@ -308,13 +310,14 @@
                             <td class="coluna-numero_contato">{{item.conheceu_servico}}</td>
                             <td class="coluna-numero_contato">{{item.contato_emergencia}}</td>
                             <td class="coluna-acoes">
-                                <button class="container-estilo-botao-editar" style="width: auto; padding: 4px 8px;"><i
+              <button class="container-estilo-botao-editar" style="width: auto; padding: 4px 8px;"><i
                                         class="far fa-edit"></i></button>
 
 
                                 <button class="botao-deletar" style="width: auto; padding: 4px 8px;"
                                     (click)="deletePaciente(item.id)"><i class="fa-solid fa-trash"></i></button>
                             </td>
+
                         </tr>
                         }
                     </tbody>
