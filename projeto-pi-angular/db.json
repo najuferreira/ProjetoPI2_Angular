@@ -35,24 +35,6 @@
       "contato_emergencia": "",
       "isAdmin": false,
       "id": 2
-    },
-    {
-      "nome": "sthephany viana",
-      "data_nascimento": "1999-05-29",
-      "cpf": "35883778836",
-      "rg": "548638226",
-      "numero_contato": "11965920650",
-      "email": "sthephanyv021@gmail.com",
-      "genero": "Feminino",
-      "preferencia_pagamento": "Mensal",
-      "profissao": "",
-      "cep": "04696-000",
-      "motivo_contato": "Relacionamento",
-      "horario_atendimento": "Tarde",
-      "conheceu_servico": "Rede social",
-      "contato_emergencia": "11965920650",
-      "isAdmin": false,
-      "id": 3
     }
   ]
 }
