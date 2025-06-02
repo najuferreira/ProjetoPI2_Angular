@@ -12,7 +12,6 @@ import { UserService } from '../../../../../services/user.service';
   styleUrls: ['./main-login.component.scss']
 })
 export class MainLoginComponent {
-
   email: string = '';
   password: string = '';
   errorMessage: string = '';
@@ -20,6 +19,7 @@ export class MainLoginComponent {
   nomeCompleto: string = '';
   cadastroEmail: string = '';
   confirmaSenha: string = '';
+  isLoading: boolean = false;
 
   constructor(
     private userService: UserService,
@@ -28,6 +28,7 @@ export class MainLoginComponent {
 
   toggleCadastro() {
     this.isCadastro = !this.isCadastro;
+    this.errorMessage = ''; // Limpa mensagens de erro ao alternar
   }
 
   onSubmit() {
@@ -36,26 +37,37 @@ export class MainLoginComponent {
       return;
     }
 
-    this.userService.login(this.email, this.password).subscribe(
-      response => {
-        if (response && response.length > 0 &&
-          this.email === this.userService.currentUser.email &&
-          this.password === this.userService.currentUser.password
-        ) {
-          console.log('Login realizado com sucesso!');
-          if (this.userService.currentUser.isAdmin) {
-            this.router.navigate(['admin']);
+    this.isLoading = true;
+    this.errorMessage = '';
+
+    this.userService.login(this.email, this.password).subscribe({
+      next: (response) => {
+        this.isLoading = false;
+
+        // Verifica se a resposta é válida
+        if (response && response.length > 0) {
+          // Verificação adicional opcional (pode ser removida se o backend já validou)
+          if (this.email === response[0].email) {
+            console.log('Login realizado com sucesso!');
+
+            // Redireciona conforme o tipo de usuário
+            if (response[0].isAdmin) {
+              this.router.navigate(['/admin']);
+            } else {
+              this.router.navigate(['/home']);
+            }
           } else {
-            this.router.navigate(['home']);
+            this.errorMessage = 'Credenciais inválidas';
           }
         } else {
           this.errorMessage = 'Email ou senha incorretos';
         }
       },
-      error => {
+      error: (error) => {
+        this.isLoading = false;
         this.errorMessage = 'Ocorreu um erro durante o login';
-        alert(this.errorMessage);
+        console.error('Erro no login:', error);
       }
-    );
+    });
   }
 }

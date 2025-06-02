@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, inject, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Paciente } from '../../../../../interfaces/user';
 import { UserService } from '../../../../../services/user.service';
@@ -16,6 +16,8 @@ export class MainPacientesComponent implements OnInit {
   isLoading: boolean = true;
   error: string | null = null;
   pacienteForm!: FormGroup;
+  private dadosOriginais: Paciente | null = null;
+  private alteracoesPendentes: Partial<Paciente> = {};
 
   // Opções para os grupos de botões
   generos = ['Masculino', 'Feminino', 'Outro'];
@@ -23,12 +25,14 @@ export class MainPacientesComponent implements OnInit {
   motivos = ['Ansiedade', 'Depressão', 'Estresse', 'Relacionamento', 'Auto-conhecimento'];
   horarios = ['Manhã', 'Tarde', 'Noite', 'Indiferente'];
   origens = ['Indicação', 'Rede social', 'Google', 'Outro'];
+  @Output() pacienteCriado = new EventEmitter<void>();
 
   constructor(private userService: UserService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.loadPatients();
     this.initForm();
+    console.log(this.userService.verificaAtualizacaoPaciente);
   }
 
   initForm(): void {
@@ -88,6 +92,7 @@ export class MainPacientesComponent implements OnInit {
     this.userService.postPaciente(novoUser).subscribe({
       next: (response) => {
         console.log('Paciente criado:', response);
+        this.pacienteCriado.emit();
         this.loadPatients();
         this.pacienteForm.reset();
       },
@@ -104,6 +109,7 @@ export class MainPacientesComponent implements OnInit {
         next: () => {
           console.log('Paciente deletado com sucesso');
           this.loadPatients();
+          this.pacienteCriado.emit();
         },
         error: (err) => {
           console.error('Erro ao deletar paciente:', err);
@@ -129,6 +135,65 @@ export class MainPacientesComponent implements OnInit {
       }
     });
   }
+
+  campoAlterado(campo: keyof Paciente, valor: any) {
+    if ((this.dadosOriginais && this.dadosOriginais[campo] !== valor) || (this.dadosOriginais == null)) {
+      this.alteracoesPendentes[campo] = valor;
+    } else {
+      delete this.alteracoesPendentes[campo];
+    };
+  }
+
+  limparAlteracoesPendentes() {
+    this.alteracoesPendentes = {};
+  }
+
+  atualizarPaciente() {
+    console.log(this.userService.userId);
+
+    if (this.userService.verificaAtualizacaoPaciente) {
+      this.userService.updatePaciente(this.userService.userId, this.alteracoesPendentes).subscribe({
+        next: (response) => {
+          console.log(`Paciente atualizado com sucesso ! ${response}`);
+          this.pacienteCriado.emit();
+        },
+        error: (e) => {
+          console.error(`Erro ao atualizar Paciente ! ${e}`);
+        }
+      });
+    };
+  };
+
+  verificarAtualizacaoPacienteForm(id: number) {
+    this.userService.verificaAtualizacaoPaciente = true;
+    this.userService.userId = id;
+    this.pacienteCriado.emit();
+    console.log(this.userService.userId);
+    console.log(this.userService.verificaAtualizacaoPaciente);
+  }
+
+  resetForm() {
+    this.pacienteForm.reset({
+      nome: '',
+      email: '',
+      password: '',
+      isAdmin: false,
+      data_nascimento: '',
+      cpf: '',
+      rg: '',
+      numero_contato: '',
+      genero: '',
+      preferencia_pagamento: '',
+      profissao: '',
+      cep: '',
+      motivo_contato: '',
+      horario_atendimento: '',
+      conheceu_servico: '',
+      contato_emergencia: '',
+    });
+    this.limparAlteracoesPendentes();
+    this.dadosOriginais = null;
+  };
 
   refresh(): void {
     this.loadPatients();

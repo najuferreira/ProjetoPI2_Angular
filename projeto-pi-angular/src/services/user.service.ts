@@ -14,11 +14,13 @@ export class UserService {
   isAuthenticated: boolean = false;
   currentUser!: User;
   userLocalStorage: any;
+  verificaAtualizacaoPaciente: boolean = false;
+  userId: number = 0;
 
   constructor(
     private http: HttpClient,
     private router: Router
-  ) {}
+  ) { }
 
   getAllPaciente(): Observable<Paciente[]> {
     return this.http.get<Paciente[]>(this.urlUser);
@@ -33,26 +35,30 @@ export class UserService {
     return this.http.post<Paciente>(this.urlUser, userCompleto);
   }
 
+  updatePaciente(id: number, paciente: Partial<Paciente>): Observable<Paciente> {
+    return this.http.patch<Paciente>(`${this.urlUser}/${id}`, paciente);
+  }
+
   deletePaciente(id: number): Observable<any> {
     return this.http.delete(`${this.urlUser}/${id}`);
   }
 
   login(email: string, password: string): Observable<any> {
-  return this.http.get<User[]>(`${this.urlUser}?email=${email}&password=${password}`).pipe(
-    tap(users => {
-      if (users && users.length > 0) {
-        this.isAuthenticated = true;
-        this.currentUser = users[0];
-        const safeUser = this.sanitizeUser(users[0]);
-        localStorage.setItem('@currentUser', JSON.stringify(safeUser));
-      }
-    }),
-    catchError(error => {
-      console.error('Erro ao realizar login:', error);
-      return of(null);
-    })
-  );
-}
+    return this.http.get<User[]>(`${this.urlUser}?email=${email}&password=${password}`).pipe(
+      tap(users => {
+        if (users && users.length > 0) {
+          this.isAuthenticated = true;
+          this.currentUser = users[0];
+          const safeUser = this.sanitizeUser(users[0]);
+          localStorage.setItem('@currentUser', JSON.stringify(safeUser));
+        }
+      }),
+      catchError(error => {
+        console.error('Erro ao realizar login:', error);
+        return of(null);
+      })
+    );
+  }
 
   // exemplo de sanitização simples (você pode ajustar conforme necessário)
   sanitizeUser(user: User): Partial<User> {

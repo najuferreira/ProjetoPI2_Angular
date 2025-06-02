@@ -22,3 +22,9 @@ export interface Paciente extends User {
     conheceu_servico: string;
     contato_emergencia: string;
 }
+
+export interface AgendaPaciente extends User{
+    data: Date;
+    link_reuniao: string;
+    plataforma: string;
+}
