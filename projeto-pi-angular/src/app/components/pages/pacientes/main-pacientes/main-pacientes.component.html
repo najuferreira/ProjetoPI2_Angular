@@ -14,13 +14,14 @@
         </section>
 
         <!-- Formulário reativo -->
-        <form [formGroup]="pacienteForm" class="container-formulario">
+        <form [formGroup]="pacienteForm" (pacienteCriado)="loadPatients()" class="container-formulario">
 
             <!-- Campos Nome e Data de nascimento -->
             <div class="container-dupla-formulario">
                 <div class="container-texto-solicitacao">
                     <p class="texto-solicitacao">Nome</p>
-                    <input formControlName="nome" type="text" class="input-nome" placeholder="Digite o nome completo" />
+                    <input formControlName="nome" type="text" class="input-nome" placeholder="Digite o nome completo"
+                        (change)="campoAlterado('nome',pacienteForm.value.nome)" />
                     <p class="texto-obrigatorio">Obrigatório*</p>
                     @if (f['nome'].invalid && (f['nome'].dirty || f['nome'].touched)) {
                     <div class="error-message">
@@ -36,7 +37,8 @@
                 <div class="container-texto-solicitacao">
                     <p class="texto-solicitacao">Data de nascimento</p>
                     <input formControlName="data_nascimento" type="date" class="input-nome" id="data_nascimento"
-                        name="data_nascimento" min="1990-01-01" max="2025-12-31" />
+                        name="data_nascimento" min="1990-01-01" max="2025-12-31"
+                        (change)="campoAlterado('data_nascimento',pacienteForm.value.data_nascimento)" />
                     <p class="texto-obrigatorio">Obrigatório*</p>
                     @if (f['data_nascimento'].invalid && (f['data_nascimento'].dirty || f['data_nascimento'].touched)) {
                     <div class="error-message">
@@ -50,7 +52,8 @@
             <div class="container-dupla-formulario">
                 <div class="container-texto-solicitacao">
                     <p class="texto-solicitacao">CPF</p>
-                    <input formControlName="cpf" type="text" class="input-nome" placeholder="Digite sem pontuações" />
+                    <input formControlName="cpf" type="text" class="input-nome" placeholder="Digite sem pontuações"
+                        (change)="campoAlterado('cpf',pacienteForm.value.cpf)" />
                     <p class="texto-obrigatorio">Obrigatório*</p>
                     @if (f['cpf'].invalid && (f['cpf'].dirty || f['cpf'].touched)) {
                     <div class="error-message">
@@ -65,7 +68,8 @@
                 </div>
                 <div class="container-texto-solicitacao">
                     <p class="texto-solicitacao">RG</p>
-                    <input formControlName="rg" type="text" class="input-nome" placeholder="Digite sem pontuações" />
+                    <input formControlName="rg" type="text" class="input-nome" placeholder="Digite sem pontuações"
+                        (change)="campoAlterado('rg',pacienteForm.value.rg)" />
                     <p class="texto-obrigatorio">Obrigatório*</p>
                     @if (f['rg'].invalid && (f['rg'].dirty || f['rg'].touched)) {
                     <div class="error-message">
@@ -80,7 +84,8 @@
                 <div class="container-texto-solicitacao">
                     <p class="texto-solicitacao">Número de contato</p>
                     <input formControlName="numero_contato" type="text" class="input-nome"
-                        placeholder="Digite um telefone" />
+                        placeholder="Digite um telefone"
+                        (change)="campoAlterado('numero_contato',pacienteForm.value.numero_contato)" />
                     <p class="texto-obrigatorio">Obrigatório*</p>
                     @if (f['numero_contato'].invalid && (f['numero_contato'].dirty || f['numero_contato'].touched)) {
                     <div class="error-message">
@@ -95,7 +100,8 @@
                 </div>
                 <div class="container-texto-solicitacao">
                     <p class="texto-solicitacao">Email</p>
-                    <input formControlName="email" type="email" class="input-nome" placeholder="Digite um email" />
+                    <input formControlName="email" type="email" class="input-nome" placeholder="Digite um email"
+                        (change)="campoAlterado('email', pacienteForm.value.email)" />
                     <p class="texto-obrigatorio">Obrigatório*</p>
                     @if (f['email'].invalid && (f['email'].dirty || f['email'].touched)) {
                     <div class="error-message">
@@ -115,35 +121,29 @@
                 <div class="container-texto-solicitacao">
                     <p class="texto-solicitacao">Gênero</p>
                     <div class="container-espaco-botao">
-                        @for (genero of generos; track genero) {
-                        <button type="button" class="container-estilo-botao"
-                            [class.botao-selecionado]="opcaoSelecionada('genero', genero)"
-                            (click)="selecionarOpcao('genero', genero)">
-                            {{ genero }}
-                        </button>
-                        }
-                        <input formControlName="genero" type="hidden">
-                        <p class="texto-obrigatorio">Obrigatório*</p>
-                        @if (f['genero'].invalid && f['genero'].touched) {
-                        <span class="error-message">Selecione uma opção</span>
-                        }
+                        <label for="genero"></label>
+                        <select formControlName="genero" name="genero"
+                            class="input-nome ng-pristine ng-invalid ng-touched"
+                            (change)="campoAlterado('genero', pacienteForm.value.genero)">
+                            <option value="">Selecione...</option>
+                            <option value="Masculino">Masculino</option>
+                            <option value="Feminino">Feminino</option>
+                            <option value="Outros">Outros</option>
+                        </select>
                     </div>
                 </div>
                 <div class="container-texto-solicitacao">
                     <p class="texto-solicitacao">Preferência de pagamento</p>
                     <div class="container-espaco-botao">
-                        @for (pagamento of pagamentos; track pagamento) {
-                        <button type="button" class="container-estilo-botao"
-                            [class.botao-selecionado]="opcaoSelecionada('preferencia_pagamento', pagamento)"
-                            (click)="selecionarOpcao('preferencia_pagamento', pagamento)">
-                            {{ pagamento }}
-                        </button>
-                        }
-                        <input formControlName="preferencia_pagamento" type="hidden">
-                        <p class="texto-obrigatorio">Obrigatório*</p>
-                        @if (f['preferencia_pagamento'].invalid && f['preferencia_pagamento'].touched) {
-                        <span class="error-message">Selecione uma opção</span>
-                        }
+                        <label for="preferencia_pagamento"></label>
+                        <select formControlName="preferencia_pagamento" name="preferencia_pagamento"
+                            class="input-nome ng-pristine ng-invalid ng-touched"
+                            (change)="campoAlterado('preferencia_pagamento', pacienteForm.value.preferia_pagamento)">
+                            <option value="">Selecione...</option>
+                            <option value="Mensal">Mensal</option>
+                            <option value="Semanal">Semanal</option>
+
+                        </select>
                     </div>
                 </div>
             </div>
@@ -152,12 +152,14 @@
             <div class="container-dupla-formulario">
                 <div class="container-texto-solicitacao">
                     <p class="texto-solicitacao">Profissão</p>
-                    <input formControlName="profissao" type="text" class="input-nome" placeholder="Digite aqui" />
+                    <input formControlName="profissao" type="text" class="input-nome" placeholder="Digite aqui"
+                        (change)="campoAlterado('profissao',pacienteForm.value.profissao)" />
                     <p class="texto-obrigatorio">Opcional*</p>
                 </div>
                 <div class="container-texto-solicitacao">
                     <p class="texto-solicitacao">CEP</p>
-                    <input formControlName="cep" type="text" class="input-nome" placeholder="Digite com pontuação" />
+                    <input formControlName="cep" type="text" class="input-nome" placeholder="Digite com pontuação"
+                        (change)="campoAlterado('cep',pacienteForm.value.cep)" />
                     <p class="texto-obrigatorio">Obrigatório*</p>
                     @if (f['cep'].invalid && (f['cep'].dirty || f['cep'].touched)) {
                     <div class="error-message">
@@ -177,18 +179,17 @@
                 <div class="container-texto-solicitacao">
                     <p class="texto-solicitacao">Motivo de contato</p>
                     <div class="container-espaco-botao">
-                        @for (motivo of motivos; track motivo) {
-                        <button type="button" class="container-estilo-botao"
-                            [class.botao-selecionado]="opcaoSelecionada('motivo_contato', motivo)"
-                            (click)="selecionarOpcao('motivo_contato', motivo)">
-                            {{ motivo }}
-                        </button>
-                        }
-                        <input formControlName="motivo_contato" type="hidden">
-                        <p class="texto-obrigatorio">Obrigatório*</p>
-                        @if (f['motivo_contato'].invalid && f['motivo_contato'].touched) {
-                        <span class="error-message">Selecione uma opção</span>
-                        }
+                        <label for="motivo_contato"></label>
+                        <select formControlName="motivo_contato" name="motivo_contato"
+                            class="input-nome ng-pristine ng-invalid ng-touched"
+                            (change)="campoAlterado('motivo_contato', pacienteForm.value.motivo_contato)">
+                            <option value="">Selecione...</option>
+                            <option value="Ansiedade">Ansiedade</option>
+                            <option value="Depressão">Depressão</option>
+                            <option value="Estresse">Estresse</option>
+                            <option value="Relacionamento">Relacionamento</option>
+                            <option value="Auto-Conhecimento">Auto-Conhecimento</option>
+                        </select>
                     </div>
                     <input type="text" class="input-nome" placeholder="Outro? Digite aqui..."
                         (input)="selecionarOpcao('motivo_contato', $any($event.target).value)"
@@ -198,18 +199,16 @@
                 <div class="container-texto-solicitacao">
                     <p class="texto-solicitacao">Horário de atendimento</p>
                     <div class="container-espaco-botao">
-                        @for (horario of horarios; track horario) {
-                        <button type="button" class="container-estilo-botao"
-                            [class.botao-selecionado]="opcaoSelecionada('horario_atendimento', horario)"
-                            (click)="selecionarOpcao('horario_atendimento', horario)">
-                            {{ horario }}
-                        </button>
-                        }
-                        <input formControlName="horario_atendimento" type="hidden">
-                        <p class="texto-obrigatorio">Obrigatório*</p>
-                        @if (f['horario_atendimento'].invalid && f['horario_atendimento'].touched) {
-                        <span class="error-message">Selecione uma opção</span>
-                        }
+                        <label for="horario_atendimento"></label>
+                        <select formControlName="horario_atendimento" name="horario_atendimento"
+                            class="input-nome ng-pristine ng-invalid ng-touched"
+                            (change)="campoAlterado('horario_atendimento', pacienteForm.value.horario_atendimento)">
+                            <option value="">Selecione...</option>
+                            <option value="Manhã">Manhã</option>
+                            <option value="Tarde">Tarde</option>
+                            <option value="Noite">Noite</option>
+                            <option value="Indirente">Indiferente</option>
+                        </select>
                     </div>
                 </div>
             </div>
@@ -219,24 +218,24 @@
                 <div class="container-texto-solicitacao">
                     <p class="texto-solicitacao">Como conheceu esse serviço</p>
                     <div class="container-espaco-botao">
-                        @for (origem of origens; track origem) {
-                        <button type="button" class="container-estilo-botao"
-                            [class.botao-selecionado]="opcaoSelecionada('conheceu_servico', origem)"
-                            (click)="selecionarOpcao('conheceu_servico', origem)">
-                            {{ origem }}
-                        </button>
-                        }
-                        <input formControlName="conheceu_servico" type="hidden">
-                        <p class="texto-obrigatorio">Obrigatório*</p>
-                        @if (f['conheceu_servico'].invalid && f['conheceu_servico'].touched) {
-                        <span class="error-message">Selecione uma opção</span>
-                        }
+                        <label for="conheceu_servico"></label>
+                        <select formControlName="conheceu_servico" name="conheceu_servico"
+                            class="input-nome ng-pristine ng-invalid ng-touched"
+                            (change)="campoAlterado('conheceu_servico', pacienteForm.value.conheceu_servico)">
+                            <option value="">Selecione...</option>
+                            <option value="Indicação">indicacao</option>
+                            <option value="Redes Sociais">Redes Sociais</option>
+                            <option value="Google">Google</option>
+                            <option value="Outros">Outros</option>
+                        </select>
                     </div>
                 </div>
+
                 <div class="container-texto-solicitacao">
                     <p class="texto-solicitacao">Contato de emergência</p>
                     <input formControlName="contato_emergencia" type="text" class="input-nome"
-                        placeholder="Digite um número de telefone" />
+                        placeholder="Digite um número de telefone"
+                        (change)="campoAlterado('contato_emergencia',pacienteForm.value.contato_emergencia)" />
                     <p class="texto-obrigatorio">Obrigatório*</p>
                     @if (f['contato_emergencia'].invalid && (f['contato_emergencia'].dirty ||
                     f['contato_emergencia'].touched)) {
@@ -254,10 +253,11 @@
         </form>
 
         <section class="container-botoes-envio">
-            <button type="button" class="container-estilo-botao-editar">Editar</button>
+            <button type="button" class="container-estilo-botao-editar" (click)="atualizarPaciente()">Editar</button>
             <button type="submit" class="container-estilo-botao-registrar" (click)="registrarPaciente()"
                 [disabled]="pacienteForm.invalid">Registrar</button>
         </section>
+
         <!-- Espaço do request - Lista de pacientes  -->
         <section class="container-tabela-pacientes">
             <div class="container-texto-sub-menu" style="width: 100%; justify-content: flex-start;">
@@ -310,7 +310,8 @@
                             <td class="coluna-numero_contato">{{item.conheceu_servico}}</td>
                             <td class="coluna-numero_contato">{{item.contato_emergencia}}</td>
                             <td class="coluna-acoes">
-              <button class="container-estilo-botao-editar" style="width: auto; padding: 4px 8px;"><i
+                                <button class="container-estilo-botao-editar" style="width: auto; padding: 4px 8px;"
+                                    (click)="verificarAtualizacaoPacienteForm(item.id)"><i
                                         class="far fa-edit"></i></button>
 
 
@@ -326,5 +327,3 @@
         </section>
     </div>
 </main>
-
-<!-- Teste para atualizar a main (conflito)-->
